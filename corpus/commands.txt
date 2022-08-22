@@ -3,6 +3,7 @@ operate to commands
 ==================
 
 config = configuration_data()
+# it is a comment 
 isvnc = get_option("vnc").disabled()
 isitvnc = get_option("vnc")
 vncornot = isitvnc.enabled
@@ -13,6 +14,7 @@ vncornot = isitvnc.disabled()
     (identifier)
     (normal_command
       (identifier)))
+  (comment)
   (operatorunit
     (identifier)
     (experession_statement

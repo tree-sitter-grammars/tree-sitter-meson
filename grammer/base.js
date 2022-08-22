@@ -103,6 +103,11 @@ module.exports = {
       ),
     ),
   identifier: (_) => /[A-Za-z_][A-Za-z0-9_]*/,
+  comment: (_) =>
+    seq(
+      "#",
+      /[^\n]+/g,
+    ),
   number: ($) => {
     const hex_literal = seq(
       choice("0x", "0X"),

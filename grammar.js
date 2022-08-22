@@ -9,14 +9,13 @@ module.exports = grammar({
     source_file: ($) =>
       repeat(
         choice(
+          $.comment,
           $.normal_command,
           $.operatorunit,
         ),
       ),
 
-
     ...base,
     ...operation,
   },
 });
-
