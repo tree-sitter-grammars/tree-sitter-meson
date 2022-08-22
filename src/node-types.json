@@ -25,6 +25,83 @@
     }
   },
   {
+    "type": "else_command",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "experession_statement",
+          "named": true
+        },
+        {
+          "type": "if_condition",
+          "named": true
+        },
+        {
+          "type": "normal_command",
+          "named": true
+        },
+        {
+          "type": "operatorunit",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "elseif_command",
+    "named": true,
+    "fields": {
+      "variable": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "bool",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "experession_statement",
+          "named": true
+        },
+        {
+          "type": "if_condition",
+          "named": true
+        },
+        {
+          "type": "normal_command",
+          "named": true
+        },
+        {
+          "type": "operatorunit",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "experession_statement",
     "named": true,
     "fields": {
@@ -58,6 +135,75 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "if_command",
+    "named": true,
+    "fields": {
+      "variable": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "bool",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "experession_statement",
+          "named": true
+        },
+        {
+          "type": "if_condition",
+          "named": true
+        },
+        {
+          "type": "normal_command",
+          "named": true
+        },
+        {
+          "type": "operatorunit",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "if_condition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "else_command",
+          "named": true
+        },
+        {
+          "type": "elseif_command",
+          "named": true
+        },
+        {
+          "type": "if_command",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -222,6 +368,14 @@
           "named": true
         },
         {
+          "type": "experession_statement",
+          "named": true
+        },
+        {
+          "type": "if_condition",
+          "named": true
+        },
+        {
           "type": "normal_command",
           "named": true
         },
@@ -298,12 +452,28 @@
     "named": false
   },
   {
+    "type": "elif",
+    "named": false
+  },
+  {
+    "type": "else",
+    "named": false
+  },
+  {
+    "type": "endif",
+    "named": false
+  },
+  {
     "type": "false",
     "named": false
   },
   {
     "type": "identifier",
     "named": true
+  },
+  {
+    "type": "if",
+    "named": false
   },
   {
     "type": "number",
