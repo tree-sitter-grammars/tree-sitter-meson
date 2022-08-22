@@ -16,6 +16,27 @@ module.exports = {
         field("value", $.identifier),
       ),
     ),
+  _logic_unit: ($) =>
+    choice(
+      $.string,
+      $.bool,
+      $.normal_command,
+      $.number,
+      $.experession_statement,
+      field("value", $.identifier),
+    ),
+  condition_unit: ($) =>
+    seq(
+      repeat(
+        seq(
+          optional("not"),
+          $._logic_unit,
+          logics(),
+        ),
+      ),
+      optional("not"),
+      $._logic_unit,
+    ),
   experession_statement: ($) =>
     seq(
       choice(
@@ -35,5 +56,13 @@ function operators() {
     "+",
     "-",
     "/",
+    "+=",
+  );
+}
+function logics() {
+  return choice(
+    "==",
+    "and",
+    "or",
   );
 }

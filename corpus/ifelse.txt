@@ -41,13 +41,12 @@ if a.enabled()
   something()
 elif true
   beta()
-elif c.enable
+elif c.enable and b.enabled
 else
   gammer()
 endif
 
 ---
-
 (source_file
   (if_condition
     (if_command
@@ -58,24 +57,28 @@ endif
       (normal_command
         (identifier)))
     (elseif_command
-      (bool)
+      (condition_unit
+        (bool))
       (normal_command
         (identifier)))
     (elseif_command
-      (experession_statement
-        (identifier)
-        (identifier)))
+      (condition_unit
+        (experession_statement
+          (identifier)
+          (identifier))
+        (experession_statement
+          (identifier)
+          (identifier))))
     (else_command
       (normal_command
         (identifier)))))
-
 =====
 conflix if 
 =====
 
 if cc.has_function('memfd_create')
   config.set('HAVE_MEMFD_CREATE', true)
-	config.set('HAVE_MEMFD', true)
+  config.set('HAVE_MEMFD', true)
 elif cc.has_function('SYS_memfd_create', prefix : '#include <sys/syscall.h>')
   config.set('HAVE_MEMFD', true)
 endif
@@ -102,14 +105,15 @@ endif
           (string)
           (identifier))))
     (elseif_command
-      (experession_statement
-        (identifier)
-        (normal_command
+      (condition_unit
+        (experession_statement
           (identifier)
-          (string)
-          (pair
+          (normal_command
             (identifier)
-            (string))))
+            (string)
+            (pair
+              (identifier)
+              (string)))))
       (experession_statement
         (identifier)
         (normal_command

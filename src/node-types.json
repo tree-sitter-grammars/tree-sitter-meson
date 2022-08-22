@@ -10,6 +10,48 @@
     "fields": {}
   },
   {
+    "type": "condition_unit",
+    "named": true,
+    "fields": {
+      "value": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "bool",
+          "named": true
+        },
+        {
+          "type": "experession_statement",
+          "named": true
+        },
+        {
+          "type": "normal_command",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "dictionaries",
     "named": true,
     "fields": {},
@@ -58,28 +100,17 @@
   {
     "type": "elseif_command",
     "named": true,
-    "fields": {
-      "variable": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
-          "type": "bool",
+          "type": "comment",
           "named": true
         },
         {
-          "type": "comment",
+          "type": "condition_unit",
           "named": true
         },
         {
@@ -420,6 +451,10 @@
     "named": false
   },
   {
+    "type": "+=",
+    "named": false
+  },
+  {
     "type": ",",
     "named": false
   },
@@ -444,11 +479,19 @@
     "named": false
   },
   {
+    "type": "==",
+    "named": false
+  },
+  {
     "type": "[",
     "named": false
   },
   {
     "type": "]",
+    "named": false
+  },
+  {
+    "type": "and",
     "named": false
   },
   {
@@ -476,8 +519,16 @@
     "named": false
   },
   {
+    "type": "not",
+    "named": false
+  },
+  {
     "type": "number",
     "named": true
+  },
+  {
+    "type": "or",
+    "named": false
   },
   {
     "type": "true",

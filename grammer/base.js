@@ -156,7 +156,7 @@ module.exports = {
 function command(name_rule, arg_rule) {
   return seq(
     name_rule,
-    repeat(/[\t ]/),
+    //repeat(/[\t ]/),
     "(",
     optional(
       arg_rule,

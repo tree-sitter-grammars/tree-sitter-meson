@@ -10,7 +10,7 @@ module.exports = {
   if_command: ($) =>
     seq(
       "if",
-      repeat(/[\t ]/),
+      //repeat(/[\t ]/),
       choice(
         field("variable", $.identifier),
         $.experession_statement,
@@ -26,13 +26,8 @@ module.exports = {
   elseif_command: ($) =>
     seq(
       "elif",
-      repeat(/[\t ]/),
-      choice(
-        field("variable", $.identifier),
-        $.experession_statement,
-        $.operatorunit,
-        $.bool,
-      ),
+			//repeat(/[\t ]/),
+			$.condition_unit,
       optional(
         repeat(
           $._unit,
@@ -42,7 +37,7 @@ module.exports = {
   else_command: ($) =>
     seq(
       "else",
-      repeat(/[\t ]/),
+      //repeat(/[\t ]/),
       optional(
         repeat(
           $._unit,

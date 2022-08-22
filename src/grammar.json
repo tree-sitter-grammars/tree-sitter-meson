@@ -9,27 +9,32 @@
       }
     },
     "_unit": {
-      "type": "CHOICE",
+      "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "experession_statement"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "comment"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "normal_command"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "operatorunit"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "if_condition"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "experession_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "comment"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "normal_command"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "operatorunit"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "if_condition"
+            }
+          ]
         }
       ]
     },
@@ -39,13 +44,6 @@
         {
           "type": "SYMBOL",
           "name": "identifier"
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "PATTERN",
-            "value": "[\\t ]"
-          }
         },
         {
           "type": "STRING",
@@ -864,6 +862,10 @@
             {
               "type": "STRING",
               "value": "/"
+            },
+            {
+              "type": "STRING",
+              "value": "+="
             }
           ]
         },
@@ -914,6 +916,101 @@
               }
             }
           ]
+        }
+      ]
+    },
+    "_logic_unit": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "bool"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "normal_command"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "number"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "experession_statement"
+        },
+        {
+          "type": "FIELD",
+          "name": "value",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        }
+      ]
+    },
+    "condition_unit": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "not"
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_logic_unit"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "=="
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "and"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "or"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "not"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_logic_unit"
         }
       ]
     },
@@ -1008,13 +1105,6 @@
           "value": "if"
         },
         {
-          "type": "REPEAT",
-          "content": {
-            "type": "PATTERN",
-            "value": "[\\t ]"
-          }
-        },
-        {
           "type": "CHOICE",
           "members": [
             {
@@ -1064,36 +1154,8 @@
           "value": "elif"
         },
         {
-          "type": "REPEAT",
-          "content": {
-            "type": "PATTERN",
-            "value": "[\\t ]"
-          }
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "FIELD",
-              "name": "variable",
-              "content": {
-                "type": "SYMBOL",
-                "name": "identifier"
-              }
-            },
-            {
-              "type": "SYMBOL",
-              "name": "experession_statement"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "operatorunit"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "bool"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "condition_unit"
         },
         {
           "type": "CHOICE",
@@ -1120,13 +1182,6 @@
           "value": "else"
         },
         {
-          "type": "REPEAT",
-          "content": {
-            "type": "PATTERN",
-            "value": "[\\t ]"
-          }
-        },
-        {
           "type": "CHOICE",
           "members": [
             {
@@ -1150,7 +1205,12 @@
       "value": "\\s"
     }
   ],
-  "conflicts": [],
+  "conflicts": [
+    [
+      "_logic_unit",
+      "normal_command"
+    ]
+  ],
   "precedences": [],
   "externals": [],
   "inline": [],
