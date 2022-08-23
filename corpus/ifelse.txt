@@ -229,3 +229,45 @@ endif
                      (normal_command
                        (identifier))))))))))))
 
+===========
+logical operations
+===========
+if a and b
+  # do something
+endif
+if c or d
+  # do something
+endif
+if not e
+  # do something
+endif
+if not (f or g)
+  # do something
+endif
+
+---
+(source_file
+  (if_condition
+    (if_command
+      (condition_unit
+        (identifier)
+        (identifier))
+      (comment)))
+  (if_condition
+    (if_command
+      (condition_unit
+        (identifier)
+        (identifier))
+      (comment)))
+  (if_condition
+    (if_command
+      (condition_unit
+        (identifier))
+      (comment)))
+  (if_condition
+    (if_command
+      (condition_unit
+        (condition_unit
+          (identifier)
+          (identifier)))
+      (comment))))

@@ -41,6 +41,11 @@ module.exports = {
       $.normal_command,
       $.number,
       $.experession_statement,
+      seq(
+        "(",
+        $.condition_unit,
+        ")",
+      ),
       field("value", $.identifier),
     ),
   condition_unit: ($) =>
