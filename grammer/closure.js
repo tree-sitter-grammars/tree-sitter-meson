@@ -12,7 +12,7 @@ module.exports = {
       "if",
       //repeat(/[\t ]/),
 
-			$.condition_unit,
+      $.condition_unit,
       optional(
         repeat(
           $._unit,
@@ -22,8 +22,8 @@ module.exports = {
   elseif_command: ($) =>
     seq(
       "elif",
-			//repeat(/[\t ]/),
-			$.condition_unit,
+      //repeat(/[\t ]/),
+      $.condition_unit,
       optional(
         repeat(
           $._unit,
@@ -41,4 +41,3 @@ module.exports = {
       ),
     ),
 };
-
