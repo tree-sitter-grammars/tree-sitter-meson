@@ -16,6 +16,11 @@ operate
 
 ## FIXME
 
+### Number
 $.number cannot express minus like -1, I don't know how to solve it, 
 
 the location defined number is in base.js
+
+### string
+
+Still cannot handle \' 
