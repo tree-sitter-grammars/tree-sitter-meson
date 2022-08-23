@@ -83,6 +83,10 @@
           "named": true
         },
         {
+          "type": "foreach_command",
+          "named": true
+        },
+        {
           "type": "if_condition",
           "named": true
         },
@@ -118,7 +122,19 @@
           "named": true
         },
         {
+          "type": "foreach_command",
+          "named": true
+        },
+        {
           "type": "if_condition",
+          "named": true
+        },
+        {
+          "type": "keyword_break",
+          "named": true
+        },
+        {
+          "type": "keyword_continue",
           "named": true
         },
         {
@@ -177,6 +193,62 @@
     }
   },
   {
+    "type": "foreach_command",
+    "named": true,
+    "fields": {
+      "array": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "item": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "experession_statement",
+          "named": true
+        },
+        {
+          "type": "foreach_command",
+          "named": true
+        },
+        {
+          "type": "if_condition",
+          "named": true
+        },
+        {
+          "type": "normal_command",
+          "named": true
+        },
+        {
+          "type": "operatorunit",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "if_command",
     "named": true,
     "fields": {},
@@ -197,7 +269,19 @@
           "named": true
         },
         {
+          "type": "foreach_command",
+          "named": true
+        },
+        {
           "type": "if_condition",
+          "named": true
+        },
+        {
+          "type": "keyword_break",
+          "named": true
+        },
+        {
+          "type": "keyword_continue",
           "named": true
         },
         {
@@ -258,7 +342,41 @@
       "required": false,
       "types": [
         {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
           "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "listitem",
+    "named": true,
+    "fields": {
+      "index": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "number",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
           "named": true
         }
       ]
@@ -284,11 +402,19 @@
       "required": false,
       "types": [
         {
+          "type": "comment",
+          "named": true
+        },
+        {
           "type": "experession_statement",
           "named": true
         },
         {
           "type": "list",
+          "named": true
+        },
+        {
+          "type": "listitem",
           "named": true
         },
         {
@@ -328,6 +454,10 @@
         },
         {
           "type": "list",
+          "named": true
+        },
+        {
+          "type": "listitem",
           "named": true
         },
         {
@@ -413,6 +543,10 @@
         },
         {
           "type": "experession_statement",
+          "named": true
+        },
+        {
+          "type": "foreach_command",
           "named": true
         },
         {
@@ -550,11 +684,19 @@
     "named": false
   },
   {
+    "type": "endforeach",
+    "named": false
+  },
+  {
     "type": "endif",
     "named": false
   },
   {
     "type": "false",
+    "named": false
+  },
+  {
+    "type": "foreach",
     "named": false
   },
   {
@@ -564,6 +706,14 @@
   {
     "type": "if",
     "named": false
+  },
+  {
+    "type": "keyword_break",
+    "named": true
+  },
+  {
+    "type": "keyword_continue",
+    "named": true
   },
   {
     "type": "not",

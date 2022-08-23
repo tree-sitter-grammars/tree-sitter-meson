@@ -7,6 +7,7 @@ module.exports = {
       //repeat(/[\t ]/),
       choice(
         //$.stringunit,
+				$.listitem,
         $.dictionaries,
         $.list,
 				$.variableunit,

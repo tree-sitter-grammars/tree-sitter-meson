@@ -16,24 +16,29 @@ module.exports = {
       field("command", $.identifier),
       optional(
         seq(
+          optional($.comment),
           repeat(
             seq(
               choice(
+                $.listitem,
                 $.list,
                 $.experession_statement,
                 $.pair,
                 $.variableunit,
               ),
               ",",
+              optional($.comment),
             ),
           ),
           choice(
+            $.listitem,
             $.list,
             $.experession_statement,
             $.pair,
             $.variableunit,
           ),
           optional(","),
+          optional($.comment),
         ),
       ),
     ),
@@ -73,27 +78,40 @@ module.exports = {
       ),
       "}",
     ),
+  listitem: ($) =>
+    seq(
+      $.identifier,
+      "[",
+      field("index", $.number),
+      "]",
+    ),
   list: ($) =>
     seq(
       "[",
-      repeat(
+      optional(seq(
+        repeat(
+          seq(
+            choice(
+              $.string,
+              $.list,
+              field("variable", $.identifier),
+              field("variable", $.experession_statement),
+            ),
+            ",",
+            optional($.comment),
+          ),
+        ),
         seq(
           choice(
             $.string,
+            $.list,
             field("variable", $.identifier),
             field("variable", $.experession_statement),
           ),
-          ",",
+          optional(","),
+          optional($.comment),
         ),
-      ),
-      seq(
-        choice(
-          $.string,
-          field("variable", $.identifier),
-          field("variable", $.experession_statement),
-        ),
-        optional(","),
-      ),
+      )),
       "]",
     ),
   pair: ($) =>
@@ -175,9 +193,7 @@ function command(name_rule, arg_rule) {
     name_rule,
     //repeat(/[\t ]/),
     "(",
-    optional(
-      arg_rule,
-    ),
+    arg_rule,
     ")",
   );
 }

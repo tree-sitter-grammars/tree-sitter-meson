@@ -1,6 +1,6 @@
-project(
+project(# test
 	'wayvnc',
-	'c',
+	'c',#test
 	version: '0.5.0',
 	license: 'ISC',
 	default_options: [
@@ -29,8 +29,8 @@ if git.found()
 	endif
 endif
 
-if buildtype != 'debug' and buildtype != 'debugoptimized'
-	c_args += '-DNDEBUG'
+if buildtype != 'debug' and buildtype != 'debugoptimized' # if
+	c_args += '-DNDEBUG' # comment
 endif
 
 add_project_arguments(c_args, language: 'c')

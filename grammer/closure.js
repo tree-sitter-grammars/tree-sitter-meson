@@ -10,14 +10,16 @@ module.exports = {
   if_command: ($) =>
     seq(
       "if",
-      //repeat(/[\t ]/),
-
       $.condition_unit,
       optional(
         repeat(
           $._unit,
         ),
       ),
+      optional(choice(
+        $.keyword_break,
+        $.keyword_continue,
+      )),
     ),
   elseif_command: ($) =>
     seq(
@@ -29,6 +31,10 @@ module.exports = {
           $._unit,
         ),
       ),
+      optional(choice(
+        $.keyword_break,
+        $.keyword_continue,
+      )),
     ),
   else_command: ($) =>
     seq(
@@ -40,4 +46,23 @@ module.exports = {
         ),
       ),
     ),
+  foreach_command: ($) =>
+    seq(
+      "foreach",
+      seq(
+        field("item", $.identifier),
+        repeat(
+          seq(
+            ",",
+            field("item", $.identifier),
+          ),
+        ),
+      ),
+      ":",
+      field("array", $.identifier),
+      optional(repeat($._unit)),
+      "endforeach",
+    ),
+  keyword_break: ($) => "break",
+  keyword_continue: ($) => "continue",
 };

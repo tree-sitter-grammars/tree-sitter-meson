@@ -18,6 +18,7 @@ module.exports = grammar({
         $.normal_command,
         $.operatorunit,
         $.if_condition,
+				$.foreach_command,
       )),
     ...base,
     ...operation,
