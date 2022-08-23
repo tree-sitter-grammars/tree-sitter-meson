@@ -88,42 +88,50 @@ endif
 
 ---
 (source_file
-   (if_condition
-     (if_command
-       (condition_unit
-         (experession_statement
-           (identifier)
-           (normal_command
-             (identifier)
-             (string))))
-       (experession_statement
-         (identifier)
-         (normal_command
-           (identifier)
-           (string)
-           (identifier)))
-       (experession_statement
-         (identifier)
-         (normal_command
-           (identifier)
-           (string)
-           (identifier))))
-     (elseif_command
-       (condition_unit
-         (experession_statement
-           (identifier)
-           (normal_command
-             (identifier)
-             (string)
-             (pair
-               (identifier)
-               (string)))))
-       (experession_statement
-         (identifier)
-         (normal_command
-           (identifier)
-           (string)
-           (identifier))))))
+  (if_condition
+    (if_command
+      (condition_unit
+        (experession_statement
+          (identifier)
+          (normal_command
+            (identifier)
+            (variableunit
+              (string)))))
+      (experession_statement
+        (identifier)
+        (normal_command
+          (identifier)
+          (variableunit
+            (string))
+          (variableunit
+            (identifier))))
+      (experession_statement
+        (identifier)
+        (normal_command
+          (identifier)
+          (variableunit
+            (string))
+          (variableunit
+            (identifier)))))
+    (elseif_command
+      (condition_unit
+        (experession_statement
+          (identifier)
+          (normal_command
+            (identifier)
+            (variableunit
+              (string))
+            (pair
+              (identifier)
+              (string)))))
+      (experession_statement
+        (identifier)
+        (normal_command
+          (identifier)
+          (variableunit
+            (string))
+          (variableunit
+            (identifier)))))))
 
 =================
 muti if else 
@@ -143,8 +151,8 @@ endif
         (string))
       (operatorunit
         (identifier)
-        (string)))))
-
+          (variableunit
+            (string))))))
 ===================
 if else very conflix 
 ==================

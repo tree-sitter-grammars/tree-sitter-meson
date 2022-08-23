@@ -21,9 +21,8 @@ module.exports = {
               choice(
                 $.list,
                 $.experession_statement,
-                $.string,
-                $.identifier,
                 $.pair,
+                $.variableunit,
               ),
               ",",
             ),
@@ -31,9 +30,8 @@ module.exports = {
           choice(
             $.list,
             $.experession_statement,
-            $.string,
-            $.identifier,
             $.pair,
+            $.variableunit,
           ),
           optional(","),
         ),
@@ -111,7 +109,7 @@ module.exports = {
       field(
         "value",
         choice(
-					$.normal_command,
+          $.normal_command,
           $.number,
           $.identifier,
           $.list,

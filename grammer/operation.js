@@ -6,41 +6,31 @@ module.exports = {
       operators(),
       //repeat(/[\t ]/),
       choice(
+        //$.stringunit,
         $.dictionaries,
         $.list,
-        $.string,
+				$.variableunit,
         $.bool,
         $.normal_command,
         $.number,
         $.experession_statement,
-        field("value", $.identifier),
+        //field("value", $.identifier),
       ),
     ),
-	// TODO instead of choice?
   variableunit: ($) =>
     seq(
       choice(
-        field("value", $.identifier),
-        $.normal_command,
-        $.number,
-        $.experession_statement,
         $.string,
-        $.bool,
-        $.list,
+        field("value", $.identifier),
       ),
       optional(
-        seq(
-          combineoperators(),
+        repeat(seq(
+          "+",
           choice(
-            field("value", $.identifier),
-            $.normal_command,
-            $.number,
-            $.experession_statement,
+            $.identifier,
             $.string,
-            $.bool,
-            $.list,
           ),
-        ),
+        )),
       ),
     ),
   _logic_unit: ($) =>
@@ -92,7 +82,6 @@ function operators() {
     "+=",
     "-=",
     "/=",
-    "+=",
   );
 }
 function logics() {

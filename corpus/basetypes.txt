@@ -10,12 +10,14 @@ libpam = cc.find_library('pam', required: get_option('pam'))
       (identifier)
       (normal_command
         (identifier)
-        (string)
+        (variableunit
+          (string))
         (pair
           (identifier)
           (normal_command
             (identifier)
-            (string)))))))
+            (variableunit
+              (string))))))))
 =======
 string
 =======
@@ -36,10 +38,12 @@ a = exec(["a",true])
 (source_file
   (operatorunit
     (identifier)
-    (string))
+    (variableunit
+      (string)))
   (operatorunit
     (identifier)
-    (string))
+    (variableunit
+      (string)))
   (operatorunit
     (identifier)
     (normal_command
@@ -48,7 +52,8 @@ a = exec(["a",true])
     (identifier)
     (normal_command
       (identifier)
-      (identifier)))
+      (variableunit
+        (identifier))))
   (operatorunit
     (identifier)
     (normal_command
@@ -84,6 +89,7 @@ command = [
             (identifier)
             (normal_command
               (identifier)))
-          (identifier))))))
+				    (variableunit
+              (identifier)))))))
 
 

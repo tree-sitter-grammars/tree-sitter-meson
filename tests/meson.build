@@ -105,7 +105,7 @@ dependencies = [
 
 config = configuration_data()
 
-#config.set('PREFIX', a: true, '"'+"beta"+'"')
+config.set('PREFIX', a: true, '"'+"beta"+'"')
 
 if host_system == 'linux' and get_option('systemtap') and cc.has_header('sys/sdt.h')
 	config.set('HAVE_USDT', true)

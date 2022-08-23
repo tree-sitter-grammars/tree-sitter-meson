@@ -19,8 +19,10 @@ project(
 (source_file
   (normal_command
     (identifier)
-    (string)
-    (string)
+    (variableunit
+      (string))
+    (variableunit
+      (string))
     (pair
       (identifier)
       (string))

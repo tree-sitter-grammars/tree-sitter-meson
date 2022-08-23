@@ -20,14 +20,16 @@ vncornot = isitvnc.disabled()
     (experession_statement
       (normal_command
         (identifier)
-        (string))
+				            (variableunit
+              (string)))
       (normal_command
         (identifier))))
   (operatorunit
     (identifier)
     (normal_command
       (identifier)
-      (string)))
+			          (variableunit
+            (string))))
   (operatorunit
     (identifier)
     (experession_statement
@@ -56,36 +58,39 @@ custom_target(
 )
 ---
 (source_file
-  (normal_command
-    (identifier)
-    (identifier)
-    (pair
-      (identifier)
-      (identifier))
-    (pair
-      (identifier)
-      (identifier))
-    (pair
-      (identifier)
-      (list
-        (identifier)
-        (string)
-        (experession_statement
-          (string)
-          (normal_command
-            (identifier)
-            (experession_statement
-              (identifier)
-              (normal_command
-                (identifier)))
-            (identifier)))))
-    (pair
-      (identifier)
-      (bool))
-    (pair
-      (identifier)
-      (experession_statement
-        (string)
-        (normal_command
-          (identifier)
-          (identifier))))))
+   (normal_command
+     (identifier)
+     (variableunit
+       (identifier))
+     (pair
+       (identifier)
+       (identifier))
+     (pair
+       (identifier)
+       (identifier))
+     (pair
+       (identifier)
+       (list
+         (identifier)
+         (string)
+         (experession_statement
+           (string)
+           (normal_command
+             (identifier)
+             (experession_statement
+               (identifier)
+               (normal_command
+                 (identifier)))
+             (variableunit
+               (identifier))))))
+     (pair
+       (identifier)
+       (bool))
+     (pair
+       (identifier)
+       (experession_statement
+         (string)
+         (normal_command
+           (identifier)
+           (variableunit
+             (identifier)))))))
