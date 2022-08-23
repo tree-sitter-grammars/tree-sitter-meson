@@ -161,7 +161,7 @@ module.exports = {
       "#",
       /[^\n]+/g,
     ),
-	// FIXME cannot express -1
+  // FIXME cannot express -1
   number: ($) => {
     const hex_literal = seq(
       choice("0x", "0X"),
@@ -199,6 +199,8 @@ module.exports = {
     );
 
     return token(choice(
+      // TODO maybe better solution
+      signed_integer,
       hex_literal,
       decimal_literal,
       binary_literal,
