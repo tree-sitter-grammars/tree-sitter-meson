@@ -92,6 +92,7 @@ module.exports = {
         repeat(
           seq(
             choice(
+              $.number,
               $.string,
               $.list,
               field("variable", $.identifier),
@@ -103,6 +104,7 @@ module.exports = {
         ),
         seq(
           choice(
+            $.number,
             $.string,
             $.list,
             field("variable", $.identifier),

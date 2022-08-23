@@ -92,4 +92,32 @@ command = [
 				    (variableunit
               (identifier)))))))
 
-
+====================
+in opetate for array
+====================
+my_array = [1, 2]
+if 1 in my_array
+# This condition is true
+endif
+if 1 not in my_array
+# This condition is false
+endif
+---
+(source_file
+  (operatorunit
+    (identifier)
+    (list
+      (number)
+      (number)))
+  (if_condition
+    (if_command
+      (condition_unit
+        (number)
+        (identifier))
+      (comment)))
+  (if_condition
+    (if_command
+      (condition_unit
+        (number)
+        (identifier))
+      (comment))))

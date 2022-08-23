@@ -332,6 +332,10 @@
                         "members": [
                           {
                             "type": "SYMBOL",
+                            "name": "number"
+                          },
+                          {
+                            "type": "SYMBOL",
                             "name": "string"
                           },
                           {
@@ -381,6 +385,10 @@
                     {
                       "type": "CHOICE",
                       "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "number"
+                        },
                         {
                           "type": "SYMBOL",
                           "name": "string"
@@ -1199,6 +1207,18 @@
                 "members": [
                   {
                     "type": "STRING",
+                    "value": "not"
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
                     "value": "=="
                   },
                   {
@@ -1212,6 +1232,10 @@
                   {
                     "type": "STRING",
                     "value": "or"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "in"
                   }
                 ]
               }
