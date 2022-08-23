@@ -20,6 +20,7 @@ module.exports = {
           repeat(
             seq(
               choice(
+                $.map,
                 $.normal_command,
                 $.listitem,
                 $.list,
@@ -32,6 +33,7 @@ module.exports = {
             ),
           ),
           choice(
+            $.map,
             $.normal_command,
             $.listitem,
             $.list,
@@ -159,7 +161,15 @@ module.exports = {
   map: ($) =>
     seq(
       "{",
-      repeat($.pair),
+      repeat(
+        seq(
+          repeat($.pair),
+          ",",
+        ),
+      ),
+      optional(seq(
+        $.pair,
+      )),
       "}",
     ),
   pair: ($) =>

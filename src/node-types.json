@@ -439,6 +439,10 @@
           "named": true
         },
         {
+          "type": "map",
+          "named": true
+        },
+        {
           "type": "normal_command",
           "named": true
         },
@@ -527,17 +531,9 @@
         ]
       },
       "value": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
-          {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
           {
             "type": "bool",
             "named": true

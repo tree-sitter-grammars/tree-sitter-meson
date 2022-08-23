@@ -85,6 +85,10 @@
                         "members": [
                           {
                             "type": "SYMBOL",
+                            "name": "map"
+                          },
+                          {
+                            "type": "SYMBOL",
                             "name": "normal_command"
                           },
                           {
@@ -131,6 +135,10 @@
                 {
                   "type": "CHOICE",
                   "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "map"
+                    },
                     {
                       "type": "SYMBOL",
                       "name": "normal_command"
@@ -632,9 +640,38 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "SYMBOL",
-            "name": "pair"
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "REPEAT",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "pair"
+                }
+              },
+              {
+                "type": "STRING",
+                "value": ","
+              }
+            ]
           }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "pair"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "STRING",
@@ -675,23 +712,6 @@
               {
                 "type": "SYMBOL",
                 "name": "var_unit"
-              },
-              {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "("
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "var_unit"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": ")"
-                  }
-                ]
               },
               {
                 "type": "SYMBOL",
