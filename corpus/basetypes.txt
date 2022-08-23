@@ -18,9 +18,9 @@ libpam = cc.find_library('pam', required: get_option('pam'))
             (identifier)
             (variableunit
               (string))))))))
-=======
-string
-=======
+================
+assign to variable
+=================
 
 a = "-c"
 
@@ -68,9 +68,9 @@ a = exec(["a",true])
       (list
         (string)
         (identifier)))))
-========
+=========
 list 
-=======
+=========
 command = [
 	sh, '-c', '@0@ <@INPUT@ >@1@'.format(scdoc_prog.path(), output)
 ]
@@ -121,3 +121,26 @@ endif
         (number)
         (identifier))
       (comment))))
+
+==========
+dictory
+==========
+prefix={
+a: true,
+"b": abcd,
+}
+val = 1
+---
+(source_file
+  (operatorunit
+    (identifier)
+    (dictionaries
+      (pair
+        (identifier)
+        (bool))
+      (pair
+        (string)
+        (identifier))))
+  (operatorunit
+    (identifier)
+    (number)))

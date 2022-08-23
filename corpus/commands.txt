@@ -42,9 +42,9 @@ vncornot = isitvnc.disabled()
       (normal_command
         (identifier)))))
 
-=====
+===========
 conflix one
-=====
+==========
 
 custom_target(
 	output,
@@ -94,3 +94,44 @@ custom_target(
            (identifier)
            (variableunit
              (identifier)))))))
+
+===========
+Command project
+===========
+
+project(
+	'wayvnc',
+	'c',
+	version: '0.5.0',
+	license: 'ISC',
+	default_options: [
+		'c_std=gnu11',
+	],
+	name: '''it is 
+	sdfd
+	''',
+)
+---
+
+(source_file
+  (normal_command
+    (identifier)
+    (variableunit
+      (string))
+    (variableunit
+      (string))
+    (pair
+      (identifier)
+      (string))
+    (pair
+      (identifier)
+      (string))
+    (pair
+      (identifier)
+      (list
+        (string)))
+    (pair
+      (identifier)
+      (string))))
+
+

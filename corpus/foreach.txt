@@ -93,3 +93,19 @@ endforeach
       (variableunit
         (identifier))))
   (comment))
+
+=========
+double items 
+=========
+
+foreach name, sources : components
+  #double key
+endforeach
+
+---
+(source_file
+  (foreach_command
+    (identifier)
+    (identifier)
+    (identifier)
+    (comment)))

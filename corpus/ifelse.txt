@@ -75,9 +75,9 @@ endif
     (else_command
       (normal_command
         (identifier)))))
-=====
-conflix if 
-=====
+================
+complex if else
+===============
 
 if cc.has_function('memfd_create')
   config.set('HAVE_MEMFD_CREATE', true)
@@ -134,7 +134,7 @@ endif
             (identifier)))))))
 
 =================
-muti if else 
+mutipile if else 
 =================
 if buildtype != 'debug' and buildtype != 'debugoptimized'
 	c_args += '-DNDEBUG'
@@ -153,85 +153,10 @@ endif
         (identifier)
           (variableunit
             (string))))))
-===================
-if else very conflix 
+
 ==================
-
-if git.found()
-	git_describe = run_command([git, 'describe', '--tags', '--long'])
-	git_branch = run_command([git, 'rev-parse', '--abbrev-ref', 'HEAD'])
-	if git_describe.returncode() == 0 and git_branch.returncode() == 0
-		c_args += '-DGIT_VERSION="@0@ (@1@)"'.format(
-			git_describe.stdout().strip(),
-			git_branch.stdout().strip(),
-		)
-	endif
-endif
-
----
-(source_file
-   (if_condition
-     (if_command
-       (condition_unit
-         (experession_statement
-           (identifier)
-           (normal_command
-             (identifier))))
-       (operatorunit
-         (identifier)
-         (normal_command
-           (identifier)
-           (list
-             (identifier)
-             (string)
-             (string)
-             (string))))
-       (operatorunit
-         (identifier)
-         (normal_command
-           (identifier)
-           (list
-             (identifier)
-             (string)
-             (string)
-             (string))))
-       (if_condition
-         (if_command
-           (condition_unit
-             (experession_statement
-               (identifier)
-               (normal_command
-                 (identifier)))
-             (number)
-             (experession_statement
-               (identifier)
-               (normal_command
-                 (identifier)))
-             (number))
-           (operatorunit
-             (identifier)
-             (experession_statement
-               (string)
-               (normal_command
-                 (identifier)
-                 (experession_statement
-                   (identifier)
-                   (experession_statement
-                     (normal_command
-                       (identifier))
-                     (normal_command
-                       (identifier))))
-                 (experession_statement
-                   (identifier)
-                   (experession_statement
-                     (normal_command
-                       (identifier))
-                     (normal_command
-                       (identifier))))))))))))
-
-===========
 logical operations
-===========
+=================
 if a and b
   # do something
 endif
@@ -244,7 +169,9 @@ endif
 if not (f or g)
   # do something
 endif
-
+if not (f.exec or g.exec())
+  # do something
+endif
 ---
 (source_file
   (if_condition
@@ -270,4 +197,16 @@ endif
         (condition_unit
           (identifier)
           (identifier)))
+        (comment)))
+  (if_condition
+    (if_command
+      (condition_unit
+        (condition_unit
+          (experession_statement
+            (identifier)
+            (identifier))
+          (experession_statement
+            (identifier)
+            (normal_command
+              (identifier)))))
       (comment))))
