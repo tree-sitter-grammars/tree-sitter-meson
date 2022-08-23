@@ -56,7 +56,8 @@ module.exports = {
         "'",
         optional(
           repeat(choice(
-            field("str", /[^'^@]+/g),
+            token.immediate(prec(1, /[^'\\^@]+/)),
+            $.escape_sequence,
             $.formatunit,
           )),
         ),
@@ -67,7 +68,8 @@ module.exports = {
         '"',
         optional(
           repeat(choice(
-            field("str", /[^"^@]+/g),
+            token.immediate(prec(1, /[^"\\^@]+/)),
+            $.escape_sequence,
             $.formatunit,
           )),
         ),
@@ -77,13 +79,25 @@ module.exports = {
         "'''",
         optional(
           repeat(choice(
-            field("str", /[^'''^@]+/g),
+            token.immediate(prec(1, /[^'''\\^@]+/)),
+            $.escape_sequence,
             $.formatunit,
           )),
         ),
         "'''",
       ),
     ),
+  escape_sequence: ($) =>
+    token.immediate(seq(
+      "\\",
+      choice(
+        /[^xu0-7]/,
+        /[0-7]{1,3}/,
+        /x[0-9a-fA-F]{2}/,
+        /u[0-9a-fA-F]{4}/,
+        /u{[0-9a-fA-F]+}/,
+      ),
+    )),
   formatunit: ($) =>
     seq(
       "@",

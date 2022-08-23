@@ -1,3 +1,18 @@
+==============
+string escape
+==============
+beta = "@a@\'\"\@"
+---
+(source_file
+  (operatorunit
+    (identifier)
+    (variableunit
+      (string
+        (formatunit
+          (identifier))
+        (escape_sequence)
+        (escape_sequence)
+        (escape_sequence)))))
 ======================
 variabe with commands 
 ======================
