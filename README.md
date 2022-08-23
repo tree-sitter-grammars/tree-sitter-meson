@@ -17,10 +17,7 @@ operate
 ## FIXME
 
 ### Number
-$.number cannot express minus like -1, I don't know how to solve it, 
+$.number cannot express minus like -1, now I solve it ,but maybe better solution> 
 
 the location defined number is in base.js
 
-### string
-
-Still cannot handle \' 
