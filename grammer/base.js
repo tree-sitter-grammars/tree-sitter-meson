@@ -20,6 +20,7 @@ module.exports = {
           repeat(
             seq(
               choice(
+                $.normal_command,
                 $.listitem,
                 $.list,
                 $.experession_statement,
@@ -31,6 +32,7 @@ module.exports = {
             ),
           ),
           choice(
+            $.normal_command,
             $.listitem,
             $.list,
             $.experession_statement,
@@ -122,6 +124,12 @@ module.exports = {
       )),
       "]",
     ),
+  map: ($) =>
+    seq(
+      "{",
+      repeat($.pair),
+      "}",
+    ),
   pair: ($) =>
     seq(
       field(
@@ -135,6 +143,7 @@ module.exports = {
       field(
         "value",
         choice(
+          $.map,
           $.normal_command,
           $.number,
           $.identifier,
@@ -151,6 +160,7 @@ module.exports = {
       "#",
       /[^\n]+/g,
     ),
+	// FIXME cannot express -1
   number: ($) => {
     const hex_literal = seq(
       choice("0x", "0X"),

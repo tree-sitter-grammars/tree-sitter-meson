@@ -124,6 +124,24 @@
           }
         ]
       },
+      "index": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "[",
+            "named": false
+          },
+          {
+            "type": "]",
+            "named": false
+          },
+          {
+            "type": "number",
+            "named": true
+          }
+        ]
+      },
       "object": {
         "multiple": false,
         "required": false,
@@ -345,6 +363,21 @@
     }
   },
   {
+    "type": "map",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "pair",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "normal_command",
     "named": true,
     "fields": {
@@ -377,6 +410,10 @@
         },
         {
           "type": "listitem",
+          "named": true
+        },
+        {
+          "type": "normal_command",
           "named": true
         },
         {
@@ -481,6 +518,10 @@
           },
           {
             "type": "list",
+            "named": true
+          },
+          {
+            "type": "map",
             "named": true
           },
           {

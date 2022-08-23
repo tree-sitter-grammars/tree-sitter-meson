@@ -86,6 +86,14 @@ module.exports = {
         field("function", $.experession_statement),
         field("property", $.identifier),
       ),
+      optional(field(
+        "index",
+        seq(
+          "[",
+          $.number,
+          "]",
+        ),
+      )),
     ),
 };
 //function combineoperators() {
