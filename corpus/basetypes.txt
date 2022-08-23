@@ -6,18 +6,20 @@ libpam = cc.find_library('pam', required: get_option('pam'))
 (source_file
   (operatorunit
     (identifier)
-    (experession_statement
-      (identifier)
-      (normal_command
+    (var_unit
+      (experession_statement
         (identifier)
-        (variableunit
-          (string))
-        (pair
+        (normal_command
           (identifier)
-          (normal_command
+          (variableunit
+            (string))
+          (pair
             (identifier)
-            (variableunit
-              (string))))))))
+            (normal_command
+              (identifier)
+              (variableunit
+                (string)))))))))
+
 ================
 assign to variable
 =================
@@ -38,11 +40,11 @@ a = exec(["a",true])
 (source_file
   (operatorunit
     (identifier)
-    (variableunit
+    (var_unit
       (string)))
   (operatorunit
     (identifier)
-    (variableunit
+    (var_unit
       (string)))
   (operatorunit
     (identifier)
@@ -111,13 +113,13 @@ endif
       (number)))
   (if_condition
     (if_command
-      (condition_unit
+      (var_unit
         (number)
         (identifier))
       (comment)))
   (if_condition
     (if_command
-      (condition_unit
+      (var_unit
         (number)
         (identifier))
       (comment))))

@@ -79,18 +79,18 @@ endforeach
     (identifier)
     (if_condition
       (if_command
-        (condition_unit
+        (var_unit
           (identifier)
           (string))
         (keyword_continue))
       (elseif_command
-        (condition_unit
+        (var_unit
           (identifier)
           (string))
         (keyword_break)))
     (operatorunit
       (identifier)
-      (variableunit
+       (var_unit
         (identifier))))
   (comment))
 

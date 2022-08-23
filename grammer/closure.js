@@ -10,7 +10,7 @@ module.exports = {
   if_command: ($) =>
     seq(
       "if",
-      $.condition_unit,
+      $.var_unit,
       optional(
         repeat(
           $._unit,
@@ -25,7 +25,7 @@ module.exports = {
     seq(
       "elif",
       //repeat(/[\t ]/),
-      $.condition_unit,
+      $.var_unit,
       optional(
         repeat(
           $._unit,

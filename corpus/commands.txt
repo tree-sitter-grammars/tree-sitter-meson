@@ -20,16 +20,16 @@ vncornot = isitvnc.disabled()
     (experession_statement
       (normal_command
         (identifier)
-				            (variableunit
-              (string)))
+        (variableunit
+          (string)))
       (normal_command
         (identifier))))
   (operatorunit
     (identifier)
     (normal_command
       (identifier)
-			          (variableunit
-            (string))))
+      (variableunit
+        (string))))
   (operatorunit
     (identifier)
     (experession_statement
@@ -37,11 +37,11 @@ vncornot = isitvnc.disabled()
       (identifier)))
   (operatorunit
     (identifier)
-    (experession_statement
-      (identifier)
-      (normal_command
-        (identifier)))))
-
+      (var_unit
+        (experession_statement
+          (identifier)
+          (normal_command
+            (identifier))))))
 ===========
 conflix one
 ==========
@@ -146,9 +146,9 @@ x = condition ? true_value : false_value
   (operatorunit
     (identifier)
     (ternaryoperator
-      (condition_unit
+      (var_unit
         (identifier))
-      (condition_unit
+      (var_unit
         (identifier))
-      (condition_unit
+      (var_unit
         (identifier)))))

@@ -15,7 +15,8 @@ module.exports = {
         $.normal_command,
         $.number,
         $.experession_statement,
-				$.ternaryoperator,
+        $.ternaryoperator,
+        $.var_unit,
         //field("value", $.identifier),
       ),
     ),
@@ -37,11 +38,11 @@ module.exports = {
     ),
   ternaryoperator: ($) =>
     seq(
-      $.condition_unit,
+      $.var_unit,
       "?",
-      $.condition_unit,
+      $.var_unit,
       ":",
-      $.condition_unit,
+      $.var_unit,
     ),
   _logic_unit: ($) =>
     choice(
@@ -52,12 +53,12 @@ module.exports = {
       $.experession_statement,
       seq(
         "(",
-        $.condition_unit,
+        $.var_unit,
         ")",
       ),
       field("value", $.identifier),
     ),
-  condition_unit: ($) =>
+  var_unit: ($) =>
     seq(
       repeat(
         seq(

@@ -3,7 +3,11 @@ const operation = require("./grammer/operation");
 const closure = require("./grammer/closure");
 module.exports = grammar({
   name: "meson",
-  conflicts: ($) => [[$._logic_unit, $.normal_command]],
+  conflicts: ($) => [
+    [$._logic_unit, $.normal_command],
+    [ $.variableunit,$._logic_unit],
+    [ $.operatorunit,$._logic_unit],
+  ],
   rules: {
     //source_file: ($) => repeat($._command_invocation),
     source_file: ($) =>

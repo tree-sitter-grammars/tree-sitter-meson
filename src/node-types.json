@@ -10,52 +10,6 @@
     "fields": {}
   },
   {
-    "type": "condition_unit",
-    "named": true,
-    "fields": {
-      "value": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "bool",
-          "named": true
-        },
-        {
-          "type": "condition_unit",
-          "named": true
-        },
-        {
-          "type": "experession_statement",
-          "named": true
-        },
-        {
-          "type": "normal_command",
-          "named": true
-        },
-        {
-          "type": "number",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "dictionaries",
     "named": true,
     "fields": {},
@@ -118,10 +72,6 @@
           "named": true
         },
         {
-          "type": "condition_unit",
-          "named": true
-        },
-        {
           "type": "experession_statement",
           "named": true
         },
@@ -147,6 +97,10 @@
         },
         {
           "type": "operatorunit",
+          "named": true
+        },
+        {
+          "type": "var_unit",
           "named": true
         }
       ]
@@ -265,10 +219,6 @@
           "named": true
         },
         {
-          "type": "condition_unit",
-          "named": true
-        },
-        {
           "type": "experession_statement",
           "named": true
         },
@@ -294,6 +244,10 @@
         },
         {
           "type": "operatorunit",
+          "named": true
+        },
+        {
+          "type": "var_unit",
           "named": true
         }
       ]
@@ -481,6 +435,10 @@
           "named": true
         },
         {
+          "type": "var_unit",
+          "named": true
+        },
+        {
           "type": "variableunit",
           "named": true
         }
@@ -590,7 +548,53 @@
       "required": true,
       "types": [
         {
-          "type": "condition_unit",
+          "type": "var_unit",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "var_unit",
+    "named": true,
+    "fields": {
+      "value": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "bool",
+          "named": true
+        },
+        {
+          "type": "experession_statement",
+          "named": true
+        },
+        {
+          "type": "normal_command",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "var_unit",
           "named": true
         }
       ]

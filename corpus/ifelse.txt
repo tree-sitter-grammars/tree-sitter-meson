@@ -8,7 +8,7 @@ endif
 (source_file
   (if_condition
     (if_command
-      (condition_unit
+      (var_unit
         (bool))
       (normal_command
         (identifier)))))
@@ -25,7 +25,7 @@ endif
 (source_file
   (if_condition
     (if_command
-      (condition_unit
+      (var_unit
         (experession_statement
           (identifier)
           (normal_command
@@ -35,6 +35,8 @@ endif
     (else_command
       (normal_command
         (identifier)))))
+
+
 ================
 base if elif else
 ===============
@@ -47,12 +49,11 @@ elif c.enable and b.enabled
 else
   gammer()
 endif
-
 ---
 (source_file
   (if_condition
     (if_command
-      (condition_unit
+      (var_unit
         (experession_statement
           (identifier)
           (normal_command
@@ -60,12 +61,12 @@ endif
       (normal_command
         (identifier)))
     (elseif_command
-      (condition_unit
+      (var_unit
         (bool))
       (normal_command
         (identifier)))
     (elseif_command
-      (condition_unit
+      (var_unit
         (experession_statement
           (identifier)
           (identifier))
@@ -75,6 +76,7 @@ endif
     (else_command
       (normal_command
         (identifier)))))
+
 ================
 complex if else
 ===============
@@ -85,12 +87,11 @@ if cc.has_function('memfd_create')
 elif cc.has_function('SYS_memfd_create', prefix : '#include <sys/syscall.h>')
   config.set('HAVE_MEMFD', true)
 endif
-
 ---
 (source_file
   (if_condition
     (if_command
-      (condition_unit
+      (var_unit
         (experession_statement
           (identifier)
           (normal_command
@@ -114,7 +115,7 @@ endif
           (variableunit
             (identifier)))))
     (elseif_command
-      (condition_unit
+      (var_unit
         (experession_statement
           (identifier)
           (normal_command
@@ -144,14 +145,14 @@ endif
 (source_file
   (if_condition
     (if_command
-      (condition_unit
+      (var_unit
         (identifier)
         (string)
         (identifier)
         (string))
       (operatorunit
         (identifier)
-          (variableunit
+          (var_unit
             (string))))))
 
 ==================
@@ -176,32 +177,32 @@ endif
 (source_file
   (if_condition
     (if_command
-      (condition_unit
+      (var_unit
         (identifier)
         (identifier))
       (comment)))
   (if_condition
     (if_command
-      (condition_unit
+      (var_unit
         (identifier)
         (identifier))
       (comment)))
   (if_condition
     (if_command
-      (condition_unit
+      (var_unit
         (identifier))
       (comment)))
   (if_condition
     (if_command
-      (condition_unit
-        (condition_unit
+      (var_unit
+        (var_unit
           (identifier)
           (identifier)))
-        (comment)))
+      (comment)))
   (if_condition
     (if_command
-      (condition_unit
-        (condition_unit
+      (var_unit
+        (var_unit
           (experession_statement
             (identifier)
             (identifier))
