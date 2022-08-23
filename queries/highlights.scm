@@ -35,6 +35,11 @@
 (keyword_break)
 (keyword_continue)
 ] @repeat
+
+;;; format
+(string) @string
+["@"] @keyword
+
 (experession_statement
 	object: (identifier) @variable)
 (normal_command
