@@ -143,6 +143,7 @@ module.exports = {
       field(
         "value",
         choice(
+          $.variableunit,
           $.map,
           $.normal_command,
           $.number,

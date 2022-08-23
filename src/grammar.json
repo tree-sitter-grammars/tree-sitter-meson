@@ -538,6 +538,10 @@
             "members": [
               {
                 "type": "SYMBOL",
+                "name": "variableunit"
+              },
+              {
+                "type": "SYMBOL",
                 "name": "map"
               },
               {
@@ -1165,6 +1169,10 @@
               "name": "string"
             },
             {
+              "type": "SYMBOL",
+              "name": "list"
+            },
+            {
               "type": "FIELD",
               "name": "value",
               "content": {
@@ -1192,6 +1200,10 @@
                       {
                         "type": "SYMBOL",
                         "name": "identifier"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "list"
                       },
                       {
                         "type": "SYMBOL",
@@ -1718,7 +1730,26 @@
       "_logic_unit"
     ],
     [
+      "normal_command",
+      "variableunit"
+    ],
+    [
+      "normal_command",
+      "operatorunit"
+    ],
+    [
+      "variableunit",
+      "operatorunit"
+    ],
+    [
+      "variableunit",
+      "pair"
+    ],
+    [
       "experession_statement"
+    ],
+    [
+      "variableunit"
     ]
   ],
   "precedences": [],

@@ -7,7 +7,12 @@ module.exports = grammar({
     [$._logic_unit, $.normal_command],
     [$.variableunit, $._logic_unit],
     [$.operatorunit, $._logic_unit],
-		[$.experession_statement]
+    [$.normal_command, $.variableunit],
+    [$.normal_command, $.operatorunit],
+    [$.variableunit, $.operatorunit],
+    [$.variableunit, $.pair],
+    [$.experession_statement],
+    [$.variableunit],
   ],
   rules: {
     //source_file: ($) => repeat($._command_invocation),

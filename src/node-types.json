@@ -535,6 +535,10 @@
           {
             "type": "string",
             "named": true
+          },
+          {
+            "type": "variableunit",
+            "named": true
           }
         ]
       }
@@ -662,6 +666,10 @@
       "types": [
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "list",
           "named": true
         },
         {

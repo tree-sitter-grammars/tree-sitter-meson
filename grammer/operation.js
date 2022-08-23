@@ -24,6 +24,7 @@ module.exports = {
     seq(
       choice(
         $.string,
+        $.list,
         field("value", $.identifier),
       ),
       optional(
@@ -31,6 +32,7 @@ module.exports = {
           "+",
           choice(
             $.identifier,
+            $.list,
             $.string,
           ),
         )),
