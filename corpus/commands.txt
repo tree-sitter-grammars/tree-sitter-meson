@@ -134,4 +134,21 @@ project(
       (identifier)
       (string))))
 
+================
+Ternary operator
+===============
 
+x = condition ? true_value : false_value
+
+---
+
+(source_file
+  (operatorunit
+    (identifier)
+    (ternaryoperator
+      (condition_unit
+        (identifier))
+      (condition_unit
+        (identifier))
+      (condition_unit
+        (identifier)))))

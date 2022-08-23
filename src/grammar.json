@@ -1085,6 +1085,10 @@
             {
               "type": "SYMBOL",
               "name": "experession_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "ternaryoperator"
             }
           ]
         }
@@ -1142,6 +1146,31 @@
               "type": "BLANK"
             }
           ]
+        }
+      ]
+    },
+    "ternaryoperator": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "condition_unit"
+        },
+        {
+          "type": "STRING",
+          "value": "?"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "condition_unit"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "condition_unit"
         }
       ]
     },

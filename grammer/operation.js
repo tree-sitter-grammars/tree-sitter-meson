@@ -15,6 +15,7 @@ module.exports = {
         $.normal_command,
         $.number,
         $.experession_statement,
+				$.ternaryoperator,
         //field("value", $.identifier),
       ),
     ),
@@ -33,6 +34,14 @@ module.exports = {
           ),
         )),
       ),
+    ),
+  ternaryoperator: ($) =>
+    seq(
+      $.condition_unit,
+      "?",
+      $.condition_unit,
+      ":",
+      $.condition_unit,
     ),
   _logic_unit: ($) =>
     choice(

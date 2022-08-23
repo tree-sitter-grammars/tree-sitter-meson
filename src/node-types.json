@@ -477,6 +477,10 @@
           "named": true
         },
         {
+          "type": "ternaryoperator",
+          "named": true
+        },
+        {
           "type": "variableunit",
           "named": true
         }
@@ -578,6 +582,21 @@
     "fields": {}
   },
   {
+    "type": "ternaryoperator",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "condition_unit",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "variableunit",
     "named": true,
     "fields": {
@@ -669,6 +688,10 @@
   },
   {
     "type": "==",
+    "named": false
+  },
+  {
+    "type": "?",
     "named": false
   },
   {
