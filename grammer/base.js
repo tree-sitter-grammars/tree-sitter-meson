@@ -55,7 +55,10 @@ module.exports = {
       seq(
         "'",
         optional(
-          /[^']+/g,
+          repeat(choice(
+            field("str", /[^'^@]+/g),
+            $.formatunit,
+          )),
         ),
         "'",
       ),
@@ -63,17 +66,32 @@ module.exports = {
       seq(
         '"',
         optional(
-          /[^"]+/g,
+          repeat(choice(
+            field("str", /[^"^@]+/g),
+            $.formatunit,
+          )),
         ),
         '"',
       ),
       seq(
         "'''",
         optional(
-          /[^''']+/g,
+          repeat(choice(
+            field("str", /[^'''^@]+/g),
+            $.formatunit,
+          )),
         ),
         "'''",
       ),
+    ),
+  formatunit: ($) =>
+    seq(
+      "@",
+      choice(
+        $.number,
+        field("variable", $.identifier),
+      ),
+      "@",
     ),
   dictionaries: ($) =>
     seq(

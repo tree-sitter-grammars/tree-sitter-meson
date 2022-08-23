@@ -225,6 +225,32 @@
     }
   },
   {
+    "type": "formatunit",
+    "named": true,
+    "fields": {
+      "variable": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "if_command",
     "named": true,
     "fields": {},
@@ -582,7 +608,17 @@
   {
     "type": "string",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "formatunit",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "ternaryoperator",
@@ -745,6 +781,10 @@
   },
   {
     "type": "?",
+    "named": false
+  },
+  {
+    "type": "@",
     "named": false
   },
   {
