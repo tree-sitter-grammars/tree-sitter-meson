@@ -527,9 +527,17 @@
         ]
       },
       "value": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
           {
             "type": "bool",
             "named": true
@@ -560,6 +568,10 @@
           },
           {
             "type": "string",
+            "named": true
+          },
+          {
+            "type": "var_unit",
             "named": true
           },
           {

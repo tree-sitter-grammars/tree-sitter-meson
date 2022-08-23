@@ -13,6 +13,8 @@ module.exports = grammar({
     [$.variableunit, $.pair],
     [$.experession_statement],
     [$.variableunit],
+    [$.pair, $.variableunit, $._logic_unit],
+    [$.pair, $._logic_unit],
   ],
   rules: {
     //source_file: ($) => repeat($._command_invocation),

@@ -175,6 +175,7 @@ module.exports = {
       field(
         "value",
         choice(
+          $.var_unit,
           $.variableunit,
           $.map,
           $.normal_command,

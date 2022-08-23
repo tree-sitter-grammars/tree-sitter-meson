@@ -674,6 +674,27 @@
             "members": [
               {
                 "type": "SYMBOL",
+                "name": "var_unit"
+              },
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "("
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "var_unit"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": ")"
+                  }
+                ]
+              },
+              {
+                "type": "SYMBOL",
                 "name": "variableunit"
               },
               {
@@ -1916,6 +1937,15 @@
     ],
     [
       "variableunit"
+    ],
+    [
+      "pair",
+      "variableunit",
+      "_logic_unit"
+    ],
+    [
+      "pair",
+      "_logic_unit"
     ]
   ],
   "precedences": [],
