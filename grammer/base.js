@@ -52,18 +52,24 @@ module.exports = {
       //'sss.ss'
       seq(
         "'",
-        /[^']+/g,
+        optional(
+          /[^']+/g,
+        ),
         "'",
       ),
       //"ss.ss"
       seq(
         '"',
-        /[^"]+/g,
+        optional(
+          /[^"]+/g,
+        ),
         '"',
       ),
       seq(
         "'''",
-        /[^''']+/g,
+        optional(
+          /[^''']+/g,
+        ),
         "'''",
       ),
     ),
