@@ -7,10 +7,10 @@ module.exports = {
       //repeat(/[\t ]/),
       choice(
         //$.stringunit,
-				$.listitem,
+        $.listitem,
         $.dictionaries,
         $.list,
-				$.variableunit,
+        $.variableunit,
         $.bool,
         $.normal_command,
         $.number,
@@ -47,8 +47,11 @@ module.exports = {
     seq(
       repeat(
         seq(
+          // not true
           optional("not"),
           $._logic_unit,
+          // for example not in
+          optional("not"),
           logics(),
         ),
       ),
@@ -70,13 +73,13 @@ module.exports = {
       ),
     ),
 };
-function combineoperators() {
-  return choice(
-    "+",
-    "/",
-    "-",
-  );
-}
+//function combineoperators() {
+//  return choice(
+//    "+",
+//    "/",
+//    "-",
+//  );
+//}
 function operators() {
   return choice(
     "=",
@@ -91,5 +94,6 @@ function logics() {
     "!=",
     "and",
     "or",
+    "in",
   );
 }
