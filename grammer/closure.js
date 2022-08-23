@@ -11,12 +11,8 @@ module.exports = {
     seq(
       "if",
       //repeat(/[\t ]/),
-      choice(
-        field("variable", $.identifier),
-        $.experession_statement,
-        $.operatorunit,
-        $.bool,
-      ),
+
+			$.condition_unit,
       optional(
         repeat(
           $._unit,

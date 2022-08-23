@@ -39,3 +39,53 @@ vncornot = isitvnc.disabled()
       (identifier)
       (normal_command
         (identifier)))))
+
+=====
+conflix one
+=====
+
+custom_target(
+	output,
+	input: input,
+	output: output,
+	command: [
+		sh, "c", '@0@ <@INPUT@ >@1@'.format(scdoc_prog.path(), output)
+	],
+	install: true,
+	install_dir: '@0@/man1'.format(mandir)
+)
+---
+(source_file
+  (normal_command
+    (identifier)
+    (identifier)
+    (pair
+      (identifier)
+      (identifier))
+    (pair
+      (identifier)
+      (identifier))
+    (pair
+      (identifier)
+      (list
+        (identifier)
+        (string)
+        (experession_statement
+          (string)
+          (normal_command
+            (identifier)
+            (experession_statement
+              (identifier)
+              (normal_command
+                (identifier)))
+            (identifier)))))
+    (pair
+      (identifier)
+      (bool))
+    (pair
+      (identifier)
+      (experession_statement
+        (string)
+        (normal_command
+          (identifier)
+          (identifier))))))

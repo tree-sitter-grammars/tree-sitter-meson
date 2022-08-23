@@ -13,24 +13,30 @@ module.exports = {
   // runcommand([a,b,c])
   normal_command: ($) =>
     command(
-      $.identifier,
-      seq(
-        repeat(
-          seq(
-            choice(
-              $.string,
-              $.identifier,
-              $.pair,
+      field("command", $.identifier),
+      optional(
+        seq(
+          repeat(
+            seq(
+              choice(
+                $.list,
+                $.experession_statement,
+                $.string,
+                $.identifier,
+                $.pair,
+              ),
+              ",",
             ),
-            ",",
           ),
+          choice(
+            $.list,
+            $.experession_statement,
+            $.string,
+            $.identifier,
+            $.pair,
+          ),
+          optional(","),
         ),
-        choice(
-          $.string,
-          $.identifier,
-          $.pair,
-        ),
-        optional(","),
       ),
     ),
   bool: ($) =>
@@ -73,12 +79,23 @@ module.exports = {
     seq(
       "[",
       repeat(
+        seq(
+          choice(
+            $.string,
+            field("variable", $.identifier),
+            field("variable", $.experession_statement),
+          ),
+          ",",
+        ),
+      ),
+      seq(
         choice(
           $.string,
           field("variable", $.identifier),
+          field("variable", $.experession_statement),
         ),
+        optional(","),
       ),
-      optional(","),
       "]",
     ),
   pair: ($) =>
@@ -94,11 +111,13 @@ module.exports = {
       field(
         "value",
         choice(
+					$.normal_command,
           $.number,
           $.identifier,
           $.list,
           $.string,
           $.bool,
+          $.experession_statement,
         ),
       ),
     ),

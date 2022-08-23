@@ -141,6 +141,10 @@
         "required": false,
         "types": [
           {
+            "type": "experession_statement",
+            "named": true
+          },
+          {
             "type": "normal_command",
             "named": true
           }
@@ -152,6 +156,10 @@
         "types": [
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "string",
             "named": true
           }
         ]
@@ -171,28 +179,17 @@
   {
     "type": "if_command",
     "named": true,
-    "fields": {
-      "variable": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
-          "type": "bool",
+          "type": "comment",
           "named": true
         },
         {
-          "type": "comment",
+          "type": "condition_unit",
           "named": true
         },
         {
@@ -246,6 +243,10 @@
         "required": false,
         "types": [
           {
+            "type": "experession_statement",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           }
@@ -266,13 +267,32 @@
   {
     "type": "normal_command",
     "named": true,
-    "fields": {},
+    "fields": {
+      "command": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
+          "type": "experession_statement",
+          "named": true
+        },
+        {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "list",
           "named": true
         },
         {
@@ -367,11 +387,19 @@
             "named": true
           },
           {
+            "type": "experession_statement",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
           {
             "type": "list",
+            "named": true
+          },
+          {
+            "type": "normal_command",
             "named": true
           },
           {
@@ -423,6 +451,10 @@
     "fields": {}
   },
   {
+    "type": "!=",
+    "named": false
+  },
+  {
     "type": "\"",
     "named": false
   },
@@ -463,11 +495,19 @@
     "named": false
   },
   {
+    "type": "-=",
+    "named": false
+  },
+  {
     "type": ".",
     "named": false
   },
   {
     "type": "/",
+    "named": false
+  },
+  {
+    "type": "/=",
     "named": false
   },
   {

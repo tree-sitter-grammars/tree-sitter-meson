@@ -1,0 +1,89 @@
+======================
+variabe with commands 
+======================
+libpam = cc.find_library('pam', required: get_option('pam'))
+---
+(source_file
+  (operatorunit
+    (identifier)
+    (experession_statement
+      (identifier)
+      (normal_command
+        (identifier)
+        (string)
+        (pair
+          (identifier)
+          (normal_command
+            (identifier)
+            (string)))))))
+=======
+string
+=======
+
+a = "-c"
+
+a = '-c'
+
+a = exec()
+
+a = exec(a)
+
+a = exec(a:true)
+
+a = exec(["a",true])
+
+---
+(source_file
+  (operatorunit
+    (identifier)
+    (string))
+  (operatorunit
+    (identifier)
+    (string))
+  (operatorunit
+    (identifier)
+    (normal_command
+      (identifier)))
+  (operatorunit
+    (identifier)
+    (normal_command
+      (identifier)
+      (identifier)))
+  (operatorunit
+    (identifier)
+    (normal_command
+      (identifier)
+      (pair
+        (identifier)
+        (bool))))
+  (operatorunit
+    (identifier)
+    (normal_command
+      (identifier)
+      (list
+        (string)
+        (identifier)))))
+========
+list 
+=======
+command = [
+	sh, '-c', '@0@ <@INPUT@ >@1@'.format(scdoc_prog.path(), output)
+]
+---
+(source_file
+  (operatorunit
+    (identifier)
+    (list
+      (identifier)
+      (string)
+      (experession_statement
+        (string)
+        (normal_command
+          (identifier)
+          (experession_statement
+            (identifier)
+            (normal_command
+              (identifier)))
+          (identifier))))))
+
+

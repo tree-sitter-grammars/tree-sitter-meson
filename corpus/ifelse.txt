@@ -8,7 +8,8 @@ endif
 (source_file
   (if_condition
     (if_command
-      (bool)
+      (condition_unit
+        (bool))
       (normal_command
         (identifier)))))
 
@@ -24,10 +25,11 @@ endif
 (source_file
   (if_condition
     (if_command
-      (experession_statement
-        (identifier)
-        (normal_command
-          (identifier)))
+      (condition_unit
+        (experession_statement
+          (identifier)
+          (normal_command
+            (identifier))))
       (normal_command
         (identifier)))
     (else_command
@@ -50,10 +52,11 @@ endif
 (source_file
   (if_condition
     (if_command
-      (experession_statement
-        (identifier)
-        (normal_command
-          (identifier)))
+      (condition_unit
+        (experession_statement
+          (identifier)
+          (normal_command
+            (identifier))))
       (normal_command
         (identifier)))
     (elseif_command
@@ -85,38 +88,135 @@ endif
 
 ---
 (source_file
+   (if_condition
+     (if_command
+       (condition_unit
+         (experession_statement
+           (identifier)
+           (normal_command
+             (identifier)
+             (string))))
+       (experession_statement
+         (identifier)
+         (normal_command
+           (identifier)
+           (string)
+           (identifier)))
+       (experession_statement
+         (identifier)
+         (normal_command
+           (identifier)
+           (string)
+           (identifier))))
+     (elseif_command
+       (condition_unit
+         (experession_statement
+           (identifier)
+           (normal_command
+             (identifier)
+             (string)
+             (pair
+               (identifier)
+               (string)))))
+       (experession_statement
+         (identifier)
+         (normal_command
+           (identifier)
+           (string)
+           (identifier))))))
+
+=================
+muti if else 
+=================
+if buildtype != 'debug' and buildtype != 'debugoptimized'
+	c_args += '-DNDEBUG'
+endif
+
+---
+(source_file
   (if_condition
     (if_command
-      (experession_statement
-        (identifier)
-        (normal_command
-          (identifier)
-          (string)))
-      (experession_statement
-        (identifier)
-        (normal_command
-          (identifier)
-          (string)
-          (identifier)))
-      (experession_statement
-        (identifier)
-        (normal_command
-          (identifier)
-          (string)
-          (identifier))))
-    (elseif_command
       (condition_unit
-        (experession_statement
-          (identifier)
-          (normal_command
-            (identifier)
-            (string)
-            (pair
-              (identifier)
-              (string)))))
-      (experession_statement
         (identifier)
-        (normal_command
-          (identifier)
-          (string)
-          (identifier))))))
+        (string)
+        (identifier)
+        (string))
+      (operatorunit
+        (identifier)
+        (string)))))
+
+===================
+if else very conflix 
+==================
+
+if git.found()
+	git_describe = run_command([git, 'describe', '--tags', '--long'])
+	git_branch = run_command([git, 'rev-parse', '--abbrev-ref', 'HEAD'])
+	if git_describe.returncode() == 0 and git_branch.returncode() == 0
+		c_args += '-DGIT_VERSION="@0@ (@1@)"'.format(
+			git_describe.stdout().strip(),
+			git_branch.stdout().strip(),
+		)
+	endif
+endif
+
+---
+(source_file
+   (if_condition
+     (if_command
+       (condition_unit
+         (experession_statement
+           (identifier)
+           (normal_command
+             (identifier))))
+       (operatorunit
+         (identifier)
+         (normal_command
+           (identifier)
+           (list
+             (identifier)
+             (string)
+             (string)
+             (string))))
+       (operatorunit
+         (identifier)
+         (normal_command
+           (identifier)
+           (list
+             (identifier)
+             (string)
+             (string)
+             (string))))
+       (if_condition
+         (if_command
+           (condition_unit
+             (experession_statement
+               (identifier)
+               (normal_command
+                 (identifier)))
+             (number)
+             (experession_statement
+               (identifier)
+               (normal_command
+                 (identifier)))
+             (number))
+           (operatorunit
+             (identifier)
+             (experession_statement
+               (string)
+               (normal_command
+                 (identifier)
+                 (experession_statement
+                   (identifier)
+                   (experession_statement
+                     (normal_command
+                       (identifier))
+                     (normal_command
+                       (identifier))))
+                 (experession_statement
+                   (identifier)
+                   (experession_statement
+                     (normal_command
+                       (identifier))
+                     (normal_command
+                       (identifier))))))))))))
