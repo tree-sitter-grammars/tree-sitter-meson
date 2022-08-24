@@ -1,6 +1,6 @@
-const base = require("./grammer/base");
-const operation = require("./grammer/operation");
-const closure = require("./grammer/closure");
+const base = require("./grammar/base");
+const operation = require("./grammar/operation");
+const closure = require("./grammar/closure");
 module.exports = grammar({
   name: "meson",
   conflicts: ($) => [
@@ -25,14 +25,11 @@ module.exports = grammar({
     [$._logic_unit],
     [$.var_unit],
     [$.normal_command, $.pair, $.variableunit, $._logic_unit],
-    [$.listitem, $.pair, $.variableunit, $._logic_unit]
+    [$.listitem, $.pair, $.variableunit, $._logic_unit],
   ],
   rules: {
     //source_file: ($) => repeat($._command_invocation),
-    source_file: ($) =>
-      repeat(
-        $._unit,
-      ),
+    source_file: ($) => repeat($._unit),
     _unit: ($) =>
       seq(
         choice(
@@ -41,8 +38,8 @@ module.exports = grammar({
           $.normal_command,
           $.operatorunit,
           $.if_condition,
-          $.foreach_command,
-        ),
+          $.foreach_command
+        )
       ),
     ...base,
     ...operation,

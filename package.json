@@ -5,6 +5,7 @@
   "main": "bindings/node",
   "scripts": {
     "lint": "prettier --check grammar.js grammar/*.js",
+    "format": "prettier --write grammar.js grammar/*.js",
     "build": "tree-sitter generate",
     "test": "tree-sitter test"
   },

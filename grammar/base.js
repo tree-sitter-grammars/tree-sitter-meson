@@ -27,11 +27,11 @@ module.exports = {
                 $.experession_statement,
                 $.pair,
                 $.variableunit,
-                $.var_unit,
+                $.var_unit
               ),
               ",",
-              optional($.comment),
-            ),
+              optional($.comment)
+            )
           ),
           choice(
             $.dictionaries,
@@ -41,31 +41,29 @@ module.exports = {
             $.experession_statement,
             $.pair,
             $.variableunit,
-            $.var_unit,
+            $.var_unit
           ),
           optional(","),
-          optional($.comment),
-        ),
-      ),
+          optional($.comment)
+        )
+      )
     ),
-  bool: ($) =>
-    choice(
-      "true",
-      "false",
-    ),
+  bool: ($) => choice("true", "false"),
   string: ($) =>
     choice(
       //'sss.ss'
       seq(
         "'",
         optional(
-          repeat(choice(
-            token.immediate(prec(1, /[^'\\^@]+/)),
-            $.escape_sequence,
-            $.formatunit,
-          )),
+          repeat(
+            choice(
+              token.immediate(prec(1, /[^'\\^@]+/)),
+              $.escape_sequence,
+              $.formatunit
+            )
+          )
         ),
-        "'",
+        "'"
       ),
       //"ss.ss"
       //seq(
@@ -82,49 +80,34 @@ module.exports = {
       seq(
         "'''",
         optional(
-          repeat(choice(
-            token.immediate(prec(1, /[^'''\\^@]+/)),
-            $.escape_sequence,
-            $.formatunit,
-          )),
+          repeat(
+            choice(
+              token.immediate(prec(1, /[^'''\\^@]+/)),
+              $.escape_sequence,
+              $.formatunit
+            )
+          )
         ),
-        "'''",
-      ),
+        "'''"
+      )
     ),
   escape_sequence: ($) =>
-    token.immediate(seq(
-      "\\",
-      choice(
-        /[^xu0-7]/,
-        /[0-7]{1,3}/,
-        /x[0-9a-fA-F]{2}/,
-        /u[0-9a-fA-F]{4}/,
-        /u{[0-9a-fA-F]+}/,
-      ),
-    )),
+    token.immediate(
+      seq(
+        "\\",
+        choice(
+          /[^xu0-7]/,
+          /[0-7]{1,3}/,
+          /x[0-9a-fA-F]{2}/,
+          /u[0-9a-fA-F]{4}/,
+          /u{[0-9a-fA-F]+}/
+        )
+      )
+    ),
   formatunit: ($) =>
-    seq(
-      "@",
-      choice(
-        $.number,
-        field("variable", $.identifier),
-      ),
-      "@",
-    ),
+    seq("@", choice($.number, field("variable", $.identifier)), "@"),
   dictionaries: ($) =>
-    seq(
-      "{",
-      repeat(
-        seq(
-          $.pair,
-          ",",
-        ),
-      ),
-      optional(seq(
-        $.pair,
-      )),
-      "}",
-    ),
+    seq("{", repeat(seq($.pair, ",")), optional(seq($.pair)), "}"),
   listitem: ($) =>
     seq(
       $.identifier,
@@ -132,18 +115,34 @@ module.exports = {
       choice(
         field("index", $.number),
         field("index", $.identifier),
-        field("key", $.string),
+        field("key", $.string)
       ),
-      "]",
+      "]"
     ),
   list: ($) =>
     seq(
       "[",
-      optional(seq(
-        repeat(
-          seq(
+      optional(
+        seq(
+          repeat(
+            seq(
+              choice(
+                $.dictionaries,
+                $.normal_command,
+                $.number,
+                $.string,
+                $.list,
+                $.bool,
+                $.variableunit,
+                field("variable", $.identifier),
+                field("variable", $.experession_statement)
+              ),
+              ",",
+              optional($.comment)
+            )
+          ),
+          optional(
             choice(
-              $.dictionaries,
               $.normal_command,
               $.number,
               $.string,
@@ -151,27 +150,13 @@ module.exports = {
               $.bool,
               $.variableunit,
               field("variable", $.identifier),
-              field("variable", $.experession_statement),
-            ),
-            ",",
-            optional($.comment),
+              field("variable", $.experession_statement)
+            )
           ),
-        ),
-        optional(
-          choice(
-            $.normal_command,
-            $.number,
-            $.string,
-            $.list,
-            $.bool,
-            $.variableunit,
-            field("variable", $.identifier),
-            field("variable", $.experession_statement),
-          ),
-        ),
-        optional($.comment),
-      )),
-      "]",
+          optional($.comment)
+        )
+      ),
+      "]"
     ),
   //map: ($) =>
   //  seq(
@@ -189,15 +174,7 @@ module.exports = {
   //  ),
   pair: ($) =>
     seq(
-      field(
-        "key",
-        choice(
-          $.var_unit,
-          $.variableunit,
-          $.identifier,
-          $.string,
-        ),
-      ),
+      field("key", choice($.var_unit, $.variableunit, $.identifier, $.string)),
       ":",
       field(
         "value",
@@ -211,22 +188,15 @@ module.exports = {
           $.identifier,
           $.list,
           $.string,
-          $.experession_statement,
-        ),
-      ),
+          $.experession_statement
+        )
+      )
     ),
   identifier: (_) => /[A-Za-z_][A-Za-z0-9_]*/,
-  comment: (_) =>
-    seq(
-      "#",
-      /[^\n]+/g,
-    ),
+  comment: (_) => seq("#", /[^\n]+/g),
   // FIXME cannot express -1
   number: ($) => {
-    const hex_literal = seq(
-      choice("0x", "0X"),
-      /[\da-fA-F](_?[\da-fA-F])*/,
-    );
+    const hex_literal = seq(choice("0x", "0X"), /[\da-fA-F](_?[\da-fA-F])*/);
 
     const decimal_digits = /\d(_?\d)*/;
     const signed_integer = seq(optional(choice("-", "+")), decimal_digits);
@@ -238,12 +208,12 @@ module.exports = {
 
     const bigint_literal = seq(
       choice(hex_literal, binary_literal, octal_literal, decimal_digits),
-      "n",
+      "n"
     );
 
     const decimal_integer_literal = choice(
       "0",
-      seq(optional("0"), /[1-9]/, optional(seq(optional("_"), decimal_digits))),
+      seq(optional("0"), /[1-9]/, optional(seq(optional("_"), decimal_digits)))
     );
 
     const decimal_literal = choice(
@@ -251,22 +221,24 @@ module.exports = {
         decimal_integer_literal,
         ".",
         optional(decimal_digits),
-        optional(exponent_part),
+        optional(exponent_part)
       ),
       seq(".", decimal_digits, optional(exponent_part)),
       seq(decimal_integer_literal, exponent_part),
-      seq(decimal_digits),
+      seq(decimal_digits)
     );
 
-    return token(choice(
-      // TODO maybe better solution
-      signed_integer,
-      hex_literal,
-      decimal_literal,
-      binary_literal,
-      octal_literal,
-      bigint_literal,
-    ));
+    return token(
+      choice(
+        // TODO maybe better solution
+        signed_integer,
+        hex_literal,
+        decimal_literal,
+        binary_literal,
+        octal_literal,
+        bigint_literal
+      )
+    );
   },
 };
 function command(name_rule, arg_rule) {
@@ -275,6 +247,6 @@ function command(name_rule, arg_rule) {
     //repeat(/[\t ]/),
     "(",
     arg_rule,
-    ")",
+    ")"
   );
 }

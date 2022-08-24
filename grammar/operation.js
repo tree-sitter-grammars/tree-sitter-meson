@@ -16,9 +16,9 @@ module.exports = {
         $.number,
         $.experession_statement,
         $.ternaryoperator,
-        $.var_unit,
+        $.var_unit
         //field("value", $.identifier),
-      ),
+      )
     ),
   // a + b + c, mainly for string or lists , should not use ()
   variableunit: ($) =>
@@ -28,32 +28,24 @@ module.exports = {
         $.string,
         $.list,
         $.experession_statement,
-        field("value", $.identifier),
+        field("value", $.identifier)
       ),
       optional(
-        repeat(seq(
-          choice(
-            "+",
-            "/",
-          ),
-          choice(
-            $.normal_command,
-            $.list,
-            $.string,
-            $.experession_statement,
-            field("value", $.identifier),
-          ),
-        )),
-      ),
+        repeat(
+          seq(
+            choice("+", "/"),
+            choice(
+              $.normal_command,
+              $.list,
+              $.string,
+              $.experession_statement,
+              field("value", $.identifier)
+            )
+          )
+        )
+      )
     ),
-  ternaryoperator: ($) =>
-    seq(
-      $.var_unit,
-      "?",
-      $.var_unit,
-      ":",
-      $.var_unit,
-    ),
+  ternaryoperator: ($) => seq($.var_unit, "?", $.var_unit, ":", $.var_unit),
   _logic_unit: ($) =>
     choice(
       $.string,
@@ -62,12 +54,8 @@ module.exports = {
       $.number,
       $.experession_statement,
       $.listitem,
-      seq(
-        "(",
-        $.var_unit,
-        ")",
-      ),
-      field("value", $.identifier),
+      seq("(", $.var_unit, ")"),
+      field("value", $.identifier)
     ),
   // mainly for logics
   var_unit: ($) =>
@@ -79,11 +67,11 @@ module.exports = {
           $._logic_unit,
           // for example not in
           optional("not"),
-          logics(),
-        ),
+          logics()
+        )
       ),
       optional("not"),
-      $._logic_unit,
+      $._logic_unit
     ),
   experession_statement: ($) =>
     seq(
@@ -91,25 +79,20 @@ module.exports = {
         field("object", $.identifier),
         field("object", $.listitem),
         field("object", $.string),
-        field("function", $.normal_command),
+        field("function", $.normal_command)
       ),
-      repeat1(seq(
-        ".",
-        choice(
-          field("function", $.normal_command),
-          field("object", $.listitem),
-          field("function", $.experession_statement),
-          field("property", $.identifier),
-        ),
-        optional(field(
-          "index",
-          seq(
-            "[",
-            $.number,
-            "]",
+      repeat1(
+        seq(
+          ".",
+          choice(
+            field("function", $.normal_command),
+            field("object", $.listitem),
+            field("function", $.experession_statement),
+            field("property", $.identifier)
           ),
-        )),
-      )),
+          optional(field("index", seq("[", $.number, "]")))
+        )
+      )
     ),
 };
 //function combineoperators() {
@@ -120,23 +103,8 @@ module.exports = {
 //  );
 //}
 function operators() {
-  return choice(
-    "=",
-    "+=",
-    "-=",
-    "/=",
-    "/",
-  );
+  return choice("=", "+=", "-=", "/=", "/");
 }
 function logics() {
-  return choice(
-    "==",
-    "!=",
-    ">=",
-    ">",
-    "<",
-    "and",
-    "or",
-    "in",
-  );
+  return choice("==", "!=", ">=", ">", "<", "and", "or", "in");
 }
