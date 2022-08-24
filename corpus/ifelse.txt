@@ -104,16 +104,16 @@ endif
           (identifier)
           (variableunit
             (string))
-          (variableunit
-            (identifier))))
+          (var_unit
+            (bool))))
       (experession_statement
         (identifier)
         (normal_command
           (identifier)
           (variableunit
             (string))
-          (variableunit
-            (identifier)))))
+          (var_unit
+            (bool)))))
     (elseif_command
       (var_unit
         (experession_statement
@@ -131,9 +131,8 @@ endif
           (identifier)
           (variableunit
             (string))
-          (variableunit
-            (identifier)))))))
-
+          (var_unit
+            (bool)))))))
 =================
 mutipile if else 
 =================

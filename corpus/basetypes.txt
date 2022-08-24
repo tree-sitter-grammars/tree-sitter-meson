@@ -21,7 +21,7 @@ libpam = cc.find_library('pam', required: get_option('pam'))
 (source_file
   (operatorunit
     (identifier)
-    (var_unit
+    (variableunit
       (experession_statement
         (identifier)
         (normal_command
@@ -108,10 +108,11 @@ command = [
             (number)))
         (normal_command
           (identifier)
-          (experession_statement
-            (identifier)
-            (normal_command
-              (identifier)))
+          (variableunit
+            (experession_statement
+              (identifier)
+              (normal_command
+                (identifier))))
           (variableunit
             (identifier)))))))
 

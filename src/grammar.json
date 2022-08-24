@@ -740,6 +740,10 @@
             "members": [
               {
                 "type": "SYMBOL",
+                "name": "bool"
+              },
+              {
+                "type": "SYMBOL",
                 "name": "var_unit"
               },
               {
@@ -769,10 +773,6 @@
               {
                 "type": "SYMBOL",
                 "name": "string"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "bool"
               },
               {
                 "type": "SYMBOL",

@@ -191,6 +191,7 @@ module.exports = {
       field(
         "value",
         choice(
+          $.bool,
           $.var_unit,
           $.variableunit,
           $.map,
@@ -199,7 +200,6 @@ module.exports = {
           $.identifier,
           $.list,
           $.string,
-          $.bool,
           $.experession_statement,
         ),
       ),
