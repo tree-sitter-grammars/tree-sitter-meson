@@ -8,9 +8,12 @@
     "test": "tree-sitter test"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Decodetalkers",
+  "license": "MIT",
   "dependencies": {
+    "nan": "^2.16.0"
+  },
+  "devDependencies": {
     "tree-sitter-cli": "^0.20.6"
   }
 }
