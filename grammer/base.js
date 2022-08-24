@@ -140,9 +140,12 @@ module.exports = {
         repeat(
           seq(
             choice(
+              $.map,
+              $.normal_command,
               $.number,
               $.string,
               $.list,
+              $.variableunit,
               field("variable", $.identifier),
               field("variable", $.experession_statement),
             ),
@@ -150,17 +153,18 @@ module.exports = {
             optional($.comment),
           ),
         ),
-        seq(
+        optional(
           choice(
+            $.normal_command,
             $.number,
             $.string,
             $.list,
+            $.variableunit,
             field("variable", $.identifier),
             field("variable", $.experession_statement),
           ),
-          optional(","),
-          optional($.comment),
         ),
+        optional($.comment),
       )),
       "]",
     ),

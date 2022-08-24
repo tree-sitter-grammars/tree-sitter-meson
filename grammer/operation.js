@@ -87,6 +87,7 @@ module.exports = {
     seq(
       choice(
         field("object", $.identifier),
+        field("object", $.listitem),
         field("object", $.string),
         field("function", $.normal_command),
       ),
@@ -94,6 +95,7 @@ module.exports = {
         ".",
         choice(
           field("function", $.normal_command),
+          field("object", $.listitem),
           field("function", $.experession_statement),
           field("property", $.identifier),
         ),
@@ -129,6 +131,8 @@ function logics() {
     "==",
     "!=",
     ">=",
+    ">",
+    "<",
     "and",
     "or",
     "in",

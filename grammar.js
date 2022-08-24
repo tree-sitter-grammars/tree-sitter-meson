@@ -17,6 +17,8 @@ module.exports = grammar({
     [$.operatorunit, $.variableunit, $._logic_unit],
     [$.normal_command, $.variableunit, $._logic_unit],
     [$.pair, $._logic_unit],
+    [$.listitem, $.experession_statement],
+    [$.list, $.variableunit],
     [$._logic_unit],
   ],
   rules: {

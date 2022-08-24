@@ -59,7 +59,10 @@ module.exports = {
         ),
       ),
       ":",
-      field("array", $.identifier),
+      choice(
+        field("array", $.identifier),
+        field("array", $.list),
+      ),
       optional(repeat($._unit)),
       "endforeach",
     ),
