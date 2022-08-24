@@ -1994,6 +1994,14 @@
                 "type": "SYMBOL",
                 "name": "list"
               }
+            },
+            {
+              "type": "FIELD",
+              "name": "dictionaries",
+              "content": {
+                "type": "SYMBOL",
+                "name": "dictionaries"
+              }
             }
           ]
         },

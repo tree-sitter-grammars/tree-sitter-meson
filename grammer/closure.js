@@ -62,6 +62,7 @@ module.exports = {
       choice(
         field("array", $.identifier),
         field("array", $.list),
+        field("dictionaries", $.dictionaries),
       ),
       optional(repeat($._unit)),
       "endforeach",

@@ -178,7 +178,7 @@
     "fields": {
       "array": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "identifier",
@@ -186,6 +186,16 @@
           },
           {
             "type": "list",
+            "named": true
+          }
+        ]
+      },
+      "dictionaries": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "dictionaries",
             "named": true
           }
         ]
