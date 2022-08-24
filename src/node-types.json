@@ -360,11 +360,11 @@
           "named": true
         },
         {
-          "type": "list",
+          "type": "dictionaries",
           "named": true
         },
         {
-          "type": "map",
+          "type": "list",
           "named": true
         },
         {
@@ -427,21 +427,6 @@
     }
   },
   {
-    "type": "map",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "pair",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "normal_command",
     "named": true,
     "fields": {
@@ -465,6 +450,10 @@
           "named": true
         },
         {
+          "type": "dictionaries",
+          "named": true
+        },
+        {
           "type": "experession_statement",
           "named": true
         },
@@ -474,10 +463,6 @@
         },
         {
           "type": "listitem",
-          "named": true
-        },
-        {
-          "type": "map",
           "named": true
         },
         {
@@ -589,6 +574,10 @@
             "named": true
           },
           {
+            "type": "dictionaries",
+            "named": true
+          },
+          {
             "type": "experession_statement",
             "named": true
           },
@@ -598,10 +587,6 @@
           },
           {
             "type": "list",
-            "named": true
-          },
-          {
-            "type": "map",
             "named": true
           },
           {

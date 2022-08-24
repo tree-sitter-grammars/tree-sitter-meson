@@ -20,7 +20,7 @@ module.exports = {
           repeat(
             seq(
               choice(
-                $.map,
+                $.dictionaries,
                 $.normal_command,
                 $.listitem,
                 $.list,
@@ -34,7 +34,7 @@ module.exports = {
             ),
           ),
           choice(
-            $.map,
+            $.dictionaries,
             $.normal_command,
             $.listitem,
             $.list,
@@ -120,6 +120,9 @@ module.exports = {
           ",",
         ),
       ),
+      optional(seq(
+        $.pair,
+      )),
       "}",
     ),
   listitem: ($) =>
@@ -140,7 +143,7 @@ module.exports = {
         repeat(
           seq(
             choice(
-              $.map,
+              $.dictionaries,
               $.normal_command,
               $.number,
               $.string,
@@ -170,20 +173,20 @@ module.exports = {
       )),
       "]",
     ),
-  map: ($) =>
-    seq(
-      "{",
-      repeat(
-        seq(
-          repeat($.pair),
-          ",",
-        ),
-      ),
-      optional(seq(
-        $.pair,
-      )),
-      "}",
-    ),
+  //map: ($) =>
+  //  seq(
+  //    "{",
+  //    repeat(
+  //      seq(
+  //        repeat($.pair),
+  //        ",",
+  //      ),
+  //    ),
+  //    optional(seq(
+  //      $.pair,
+  //    )),
+  //    "}",
+  //  ),
   pair: ($) =>
     seq(
       field(
@@ -202,7 +205,7 @@ module.exports = {
           $.bool,
           $.var_unit,
           $.variableunit,
-          $.map,
+          $.dictionaries,
           $.normal_command,
           $.number,
           $.identifier,

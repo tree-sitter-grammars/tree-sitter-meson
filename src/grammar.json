@@ -85,7 +85,7 @@
                         "members": [
                           {
                             "type": "SYMBOL",
-                            "name": "map"
+                            "name": "dictionaries"
                           },
                           {
                             "type": "SYMBOL",
@@ -141,7 +141,7 @@
                   "members": [
                     {
                       "type": "SYMBOL",
-                      "name": "map"
+                      "name": "dictionaries"
                     },
                     {
                       "type": "SYMBOL",
@@ -463,6 +463,23 @@
           }
         },
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "pair"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "STRING",
           "value": "}"
         }
@@ -537,7 +554,7 @@
                         "members": [
                           {
                             "type": "SYMBOL",
-                            "name": "map"
+                            "name": "dictionaries"
                           },
                           {
                             "type": "SYMBOL",
@@ -678,55 +695,6 @@
         }
       ]
     },
-    "map": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "{"
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "REPEAT",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "pair"
-                }
-              },
-              {
-                "type": "STRING",
-                "value": ","
-              }
-            ]
-          }
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "pair"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": "}"
-        }
-      ]
-    },
     "pair": {
       "type": "SEQ",
       "members": [
@@ -779,7 +747,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "map"
+                "name": "dictionaries"
               },
               {
                 "type": "SYMBOL",
