@@ -4,6 +4,7 @@
   "description": "A tree-sitter for meson",
   "main": "bindings/node",
   "scripts": {
+    "lint": "prettier --check grammar.js grammar/*.js",
     "build": "tree-sitter generate",
     "test": "tree-sitter test"
   },
@@ -14,6 +15,7 @@
     "nan": "^2.16.0"
   },
   "devDependencies": {
-    "tree-sitter-cli": "^0.20.6"
+    "tree-sitter-cli": "^0.20.6",
+    "prettier": "^2.7.1"
   }
 }
