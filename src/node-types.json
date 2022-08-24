@@ -157,7 +157,7 @@
         ]
       },
       "property": {
-        "multiple": false,
+        "multiple": true,
         "required": false,
         "types": [
           {
@@ -368,10 +368,24 @@
     "fields": {
       "index": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
+            "type": "identifier",
+            "named": true
+          },
+          {
             "type": "number",
+            "named": true
+          }
+        ]
+      },
+      "key": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "string",
             "named": true
           }
         ]
@@ -448,6 +462,10 @@
         },
         {
           "type": "pair",
+          "named": true
+        },
+        {
+          "type": "var_unit",
           "named": true
         },
         {
@@ -675,6 +693,10 @@
           "named": true
         },
         {
+          "type": "listitem",
+          "named": true
+        },
+        {
           "type": "normal_command",
           "named": true
         },
@@ -698,7 +720,7 @@
     "named": true,
     "fields": {
       "value": {
-        "multiple": false,
+        "multiple": true,
         "required": false,
         "types": [
           {
@@ -713,11 +735,15 @@
       "required": false,
       "types": [
         {
-          "type": "identifier",
+          "type": "experession_statement",
           "named": true
         },
         {
           "type": "list",
+          "named": true
+        },
+        {
+          "type": "normal_command",
           "named": true
         },
         {
@@ -776,6 +802,10 @@
     "named": false
   },
   {
+    "type": "/",
+    "named": false
+  },
+  {
     "type": "/=",
     "named": false
   },
@@ -789,6 +819,10 @@
   },
   {
     "type": "==",
+    "named": false
+  },
+  {
+    "type": ">=",
     "named": false
   },
   {

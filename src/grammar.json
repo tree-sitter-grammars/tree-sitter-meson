@@ -110,6 +110,10 @@
                           {
                             "type": "SYMBOL",
                             "name": "variableunit"
+                          },
+                          {
+                            "type": "SYMBOL",
+                            "name": "var_unit"
                           }
                         ]
                       },
@@ -162,6 +166,10 @@
                     {
                       "type": "SYMBOL",
                       "name": "variableunit"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "var_unit"
                     }
                   ]
                 },
@@ -472,12 +480,33 @@
           "value": "["
         },
         {
-          "type": "FIELD",
-          "name": "index",
-          "content": {
-            "type": "SYMBOL",
-            "name": "number"
-          }
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "index",
+              "content": {
+                "type": "SYMBOL",
+                "name": "number"
+              }
+            },
+            {
+              "type": "FIELD",
+              "name": "index",
+              "content": {
+                "type": "SYMBOL",
+                "name": "identifier"
+              }
+            },
+            {
+              "type": "FIELD",
+              "name": "key",
+              "content": {
+                "type": "SYMBOL",
+                "name": "string"
+              }
+            }
+          ]
         },
         {
           "type": "STRING",
@@ -1315,6 +1344,10 @@
             {
               "type": "STRING",
               "value": "/="
+            },
+            {
+              "type": "STRING",
+              "value": "/"
             }
           ]
         },
@@ -1373,11 +1406,19 @@
           "members": [
             {
               "type": "SYMBOL",
+              "name": "normal_command"
+            },
+            {
+              "type": "SYMBOL",
               "name": "string"
             },
             {
               "type": "SYMBOL",
               "name": "list"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "experession_statement"
             },
             {
               "type": "FIELD",
@@ -1398,15 +1439,24 @@
                 "type": "SEQ",
                 "members": [
                   {
-                    "type": "STRING",
-                    "value": "+"
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": "+"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "/"
+                      }
+                    ]
                   },
                   {
                     "type": "CHOICE",
                     "members": [
                       {
                         "type": "SYMBOL",
-                        "name": "identifier"
+                        "name": "normal_command"
                       },
                       {
                         "type": "SYMBOL",
@@ -1415,6 +1465,18 @@
                       {
                         "type": "SYMBOL",
                         "name": "string"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "experession_statement"
+                      },
+                      {
+                        "type": "FIELD",
+                        "name": "value",
+                        "content": {
+                          "type": "SYMBOL",
+                          "name": "identifier"
+                        }
                       }
                     ]
                   }
@@ -1475,6 +1537,10 @@
         {
           "type": "SYMBOL",
           "name": "experession_statement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "listitem"
         },
         {
           "type": "SEQ",
@@ -1552,6 +1618,10 @@
                   },
                   {
                     "type": "STRING",
+                    "value": ">="
+                  },
+                  {
+                    "type": "STRING",
                     "value": "and"
                   },
                   {
@@ -1618,66 +1688,74 @@
           ]
         },
         {
-          "type": "STRING",
-          "value": "."
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "FIELD",
-              "name": "function",
-              "content": {
-                "type": "SYMBOL",
-                "name": "normal_command"
-              }
-            },
-            {
-              "type": "FIELD",
-              "name": "function",
-              "content": {
-                "type": "SYMBOL",
-                "name": "experession_statement"
-              }
-            },
-            {
-              "type": "FIELD",
-              "name": "property",
-              "content": {
-                "type": "SYMBOL",
-                "name": "identifier"
-              }
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "FIELD",
-              "name": "index",
-              "content": {
-                "type": "SEQ",
+          "type": "REPEAT1",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "."
+              },
+              {
+                "type": "CHOICE",
                 "members": [
                   {
-                    "type": "STRING",
-                    "value": "["
+                    "type": "FIELD",
+                    "name": "function",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "normal_command"
+                    }
                   },
                   {
-                    "type": "SYMBOL",
-                    "name": "number"
+                    "type": "FIELD",
+                    "name": "function",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "experession_statement"
+                    }
                   },
                   {
-                    "type": "STRING",
-                    "value": "]"
+                    "type": "FIELD",
+                    "name": "property",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "identifier"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "FIELD",
+                    "name": "index",
+                    "content": {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": "["
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "number"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "]"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "BLANK"
                   }
                 ]
               }
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+            ]
+          }
         }
       ]
     },
@@ -1964,7 +2042,20 @@
       "_logic_unit"
     ],
     [
+      "operatorunit",
+      "variableunit",
+      "_logic_unit"
+    ],
+    [
+      "normal_command",
+      "variableunit",
+      "_logic_unit"
+    ],
+    [
       "pair",
+      "_logic_unit"
+    ],
+    [
       "_logic_unit"
     ]
   ],

@@ -27,6 +27,7 @@ module.exports = {
                 $.experession_statement,
                 $.pair,
                 $.variableunit,
+                $.var_unit,
               ),
               ",",
               optional($.comment),
@@ -40,6 +41,7 @@ module.exports = {
             $.experession_statement,
             $.pair,
             $.variableunit,
+            $.var_unit,
           ),
           optional(","),
           optional($.comment),
@@ -124,7 +126,11 @@ module.exports = {
     seq(
       $.identifier,
       "[",
-      field("index", $.number),
+      choice(
+        field("index", $.number),
+        field("index", $.identifier),
+        field("key", $.string),
+      ),
       "]",
     ),
   list: ($) =>
