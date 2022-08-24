@@ -4,8 +4,8 @@ operate to commands
 
 config = configuration_data()
 # it is a comment 
-isvnc = get_option("vnc").disabled()
-isitvnc = get_option("vnc")
+isvnc = get_option('vnc').disabled()
+isitvnc = get_option('vnc')
 vncornot = isitvnc.enabled
 vncornot = isitvnc.disabled() 
 ---
@@ -51,7 +51,7 @@ custom_target(
 	input: input,
 	output: output,
 	command: [
-		sh, "c", '@0@ <@INPUT@ >@1@'.format(scdoc_prog.path(), output)
+		sh, '-c', '@0@ <@INPUT@ >@1@'.format(scdoc_prog.path(), output)
 	],
 	install: true,
 	install_dir: '@0@/man1'.format(mandir)

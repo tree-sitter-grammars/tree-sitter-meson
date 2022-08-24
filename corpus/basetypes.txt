@@ -1,7 +1,7 @@
 ==============
 string escape
 ==============
-beta = "@a@\'\"\@"
+beta = '@a@\'\"\@'
 ---
 (source_file
   (operatorunit
@@ -39,7 +39,7 @@ libpam = cc.find_library('pam', required: get_option('pam'))
 assign to variable
 =================
 
-a = "-c"
+a = 'ssss'
 
 a = '-c'
 
@@ -49,7 +49,7 @@ a = exec(a)
 
 a = exec(a:true)
 
-a = exec(["a",true])
+a = exec(['a',true])
 
 ---
 (source_file
@@ -152,7 +152,7 @@ dictory
 ==========
 prefix={
 a: true,
-"b": abcd,
+'b': abcd,
 }
 val = 1
 ---

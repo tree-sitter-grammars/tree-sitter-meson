@@ -68,17 +68,17 @@ module.exports = {
         "'",
       ),
       //"ss.ss"
-      seq(
-        '"',
-        optional(
-          repeat(choice(
-            token.immediate(prec(1, /[^"\\^@]+/)),
-            $.escape_sequence,
-            $.formatunit,
-          )),
-        ),
-        '"',
-      ),
+      //seq(
+      //  '"',
+      //  optional(
+      //    repeat(choice(
+      //      token.immediate(prec(1, /[^"\\^@]+/)),
+      //      $.escape_sequence,
+      //      $.formatunit,
+      //    )),
+      //  ),
+      //  '"',
+      //),
       seq(
         "'''",
         optional(
