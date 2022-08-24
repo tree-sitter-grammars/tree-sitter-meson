@@ -738,6 +738,14 @@
             "members": [
               {
                 "type": "SYMBOL",
+                "name": "var_unit"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "variableunit"
+              },
+              {
+                "type": "SYMBOL",
                 "name": "identifier"
               },
               {
@@ -2120,6 +2128,33 @@
       "variableunit"
     ],
     [
+      "listitem",
+      "variableunit"
+    ],
+    [
+      "listitem",
+      "_logic_unit"
+    ],
+    [
+      "normal_command",
+      "experession_statement"
+    ],
+    [
+      "_logic_unit"
+    ],
+    [
+      "var_unit"
+    ],
+    [
+      "normal_command",
+      "pair",
+      "variableunit",
+      "_logic_unit"
+    ],
+    [
+      "listitem",
+      "pair",
+      "variableunit",
       "_logic_unit"
     ]
   ],

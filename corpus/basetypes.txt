@@ -84,7 +84,7 @@ a = exec(["a",true])
       (identifier)
       (list
         (string)
-        (identifier)))))
+        (bool)))))
 =========
 list 
 =========
@@ -98,23 +98,24 @@ command = [
     (list
       (identifier)
       (string)
-      (experession_statement
-        (string
-          (formatunit
-            (number))
-          (formatunit
-            (identifier))
-          (formatunit
-            (number)))
-        (normal_command
-          (identifier)
-          (variableunit
-            (experession_statement
-              (identifier)
-              (normal_command
-                (identifier))))
-          (variableunit
-            (identifier)))))))
+      (variableunit
+        (experession_statement
+          (string
+            (formatunit
+              (number))
+            (formatunit
+              (identifier))
+            (formatunit
+              (number)))
+          (normal_command
+            (identifier)
+            (variableunit
+              (experession_statement
+                (identifier)
+                (normal_command
+                  (identifier))))
+            (variableunit
+                  (identifier))))))))
 
 ====================
 in opetate for array

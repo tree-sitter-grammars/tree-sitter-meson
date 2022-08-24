@@ -20,6 +20,7 @@ module.exports = {
         //field("value", $.identifier),
       ),
     ),
+  // a + b + c, mainly for string or lists , should not use ()
   variableunit: ($) =>
     seq(
       choice(
@@ -68,6 +69,7 @@ module.exports = {
       ),
       field("value", $.identifier),
     ),
+  // mainly for logics
   var_unit: ($) =>
     seq(
       repeat(

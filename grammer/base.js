@@ -189,6 +189,8 @@ module.exports = {
       field(
         "key",
         choice(
+          $.var_unit,
+          $.variableunit,
           $.identifier,
           $.string,
         ),

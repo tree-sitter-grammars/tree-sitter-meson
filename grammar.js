@@ -19,7 +19,13 @@ module.exports = grammar({
     [$.pair, $._logic_unit],
     [$.listitem, $.experession_statement],
     [$.list, $.variableunit],
+    [$.listitem, $.variableunit],
+    [$.listitem, $._logic_unit],
+    [$.normal_command, $.experession_statement],
     [$._logic_unit],
+    [$.var_unit],
+    [$.normal_command, $.pair, $.variableunit, $._logic_unit],
+    [$.listitem, $.pair, $.variableunit, $._logic_unit]
   ],
   rules: {
     //source_file: ($) => repeat($._command_invocation),

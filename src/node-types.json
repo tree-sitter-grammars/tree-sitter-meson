@@ -569,6 +569,14 @@
           {
             "type": "string",
             "named": true
+          },
+          {
+            "type": "var_unit",
+            "named": true
+          },
+          {
+            "type": "variableunit",
+            "named": true
           }
         ]
       },
