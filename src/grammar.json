@@ -557,6 +557,10 @@
                           },
                           {
                             "type": "SYMBOL",
+                            "name": "bool"
+                          },
+                          {
+                            "type": "SYMBOL",
                             "name": "variableunit"
                           },
                           {
@@ -617,6 +621,10 @@
                         {
                           "type": "SYMBOL",
                           "name": "list"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "bool"
                         },
                         {
                           "type": "SYMBOL",

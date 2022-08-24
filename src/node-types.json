@@ -352,6 +352,10 @@
       "required": false,
       "types": [
         {
+          "type": "bool",
+          "named": true
+        },
+        {
           "type": "comment",
           "named": true
         },
