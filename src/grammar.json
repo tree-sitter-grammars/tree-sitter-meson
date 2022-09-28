@@ -526,6 +526,10 @@
                           },
                           {
                             "type": "SYMBOL",
+                            "name": "listitem"
+                          },
+                          {
+                            "type": "SYMBOL",
                             "name": "bool"
                           },
                           {

@@ -378,6 +378,10 @@
           "named": true
         },
         {
+          "type": "listitem",
+          "named": true
+        },
+        {
           "type": "normal_command",
           "named": true
         },

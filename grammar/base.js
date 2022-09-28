@@ -132,6 +132,7 @@ module.exports = {
                 $.number,
                 $.string,
                 $.list,
+                $.listitem,
                 $.bool,
                 $.variableunit,
                 field("variable", $.identifier),
