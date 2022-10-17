@@ -724,6 +724,10 @@
           "named": true
         },
         {
+          "type": "list",
+          "named": true
+        },
+        {
           "type": "listitem",
           "named": true
         },

@@ -54,6 +54,7 @@ module.exports = {
       $.number,
       $.experession_statement,
       $.listitem,
+      $.list,
       seq("(", $.var_unit, ")"),
       field("value", $.identifier)
     ),

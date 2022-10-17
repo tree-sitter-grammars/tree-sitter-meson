@@ -1494,6 +1494,10 @@
           "name": "listitem"
         },
         {
+          "type": "SYMBOL",
+          "name": "list"
+        },
+        {
           "type": "SEQ",
           "members": [
             {
