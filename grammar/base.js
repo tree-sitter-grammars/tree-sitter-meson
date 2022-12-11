@@ -107,7 +107,12 @@ module.exports = {
   formatunit: ($) =>
     seq("@", choice($.number, field("variable", $.identifier)), "@"),
   dictionaries: ($) =>
-    seq("{", repeat(choice(seq($.pair, ","), $.comment)), optional(seq($.pair)), "}"),
+    seq(
+      "{",
+      repeat(choice(seq($.pair, ","), $.comment)),
+      optional(seq($.pair)),
+      "}"
+    ),
   listitem: ($) =>
     seq(
       $.identifier,
