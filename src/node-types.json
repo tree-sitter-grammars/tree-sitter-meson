@@ -18,6 +18,10 @@
       "required": false,
       "types": [
         {
+          "type": "comment",
+          "named": true
+        },
+        {
           "type": "pair",
           "named": true
         }
