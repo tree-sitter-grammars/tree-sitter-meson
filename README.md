@@ -2,27 +2,43 @@
 
 Treesitter for meson build 
 
-## base.js 
+It just works, for highlight in neovim
+
+![image](./images/highlighshow.png)
+
+
+### Known bug
+
+if comment in some where, the Treesitter will break
+
+## Files
+
+### base.js 
 
 about the base types and command 
 
-## closue.js
+### closue.js
 
 if else and loop 
 
-## operation.js
+### operation.js
 
 operate
 
 ## FIXME
 
-### Number
-$.number cannot express minus like -1, now I solve it ,but maybe better solution> 
-
-the location defined number is in base.js
+Better handle of comment, maybe need scanner.c, but I am not good at c
 
 ## Help
 
 I need more tests
 
-please gave the issues, I will try to fix
+please give the issues, I will try to fix
+
+## TODO
+
+Take it as a reference and make a new one
+
+https://github.com/dcbaker/meson-plus-plus/blob/main/src/frontend/parser.yy
+
+I don't think it can be used to make lsp or format.. It is bad

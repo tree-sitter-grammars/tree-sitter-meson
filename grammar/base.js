@@ -200,7 +200,6 @@ module.exports = {
     ),
   identifier: (_) => /[A-Za-z_][A-Za-z0-9_]*/,
   comment: (_) => seq("#", /[^\n]+/g),
-  // FIXME cannot express -1
   number: ($) => {
     const hex_literal = seq(choice("0x", "0X"), /[\da-fA-F](_?[\da-fA-F])*/);
 
