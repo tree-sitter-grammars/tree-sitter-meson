@@ -169,3 +169,13 @@ val = 1
   (operatorunit
     (identifier)
     (number)))
+
+========
+string
+=======
+'''
+sss
+'''
+---
+(source_file
+  (string))

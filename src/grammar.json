@@ -16,6 +16,10 @@
           "members": [
             {
               "type": "SYMBOL",
+              "name": "string"
+            },
+            {
+              "type": "SYMBOL",
               "name": "experession_statement"
             },
             {

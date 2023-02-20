@@ -33,6 +33,8 @@ module.exports = grammar({
     _unit: ($) =>
       seq(
         choice(
+          // INFO: string can aslo be as comment
+          $.string,
           $.experession_statement,
           $.comment,
           $.normal_command,

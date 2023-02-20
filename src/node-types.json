@@ -59,6 +59,10 @@
         {
           "type": "operatorunit",
           "named": true
+        },
+        {
+          "type": "string",
+          "named": true
         }
       ]
     }
@@ -101,6 +105,10 @@
         },
         {
           "type": "operatorunit",
+          "named": true
+        },
+        {
+          "type": "string",
           "named": true
         },
         {
@@ -242,6 +250,10 @@
         {
           "type": "operatorunit",
           "named": true
+        },
+        {
+          "type": "string",
+          "named": true
         }
       ]
     }
@@ -310,6 +322,10 @@
         },
         {
           "type": "operatorunit",
+          "named": true
+        },
+        {
+          "type": "string",
           "named": true
         },
         {
@@ -661,6 +677,10 @@
         },
         {
           "type": "operatorunit",
+          "named": true
+        },
+        {
+          "type": "string",
           "named": true
         }
       ]
