@@ -5,11 +5,6 @@
     "fields": {}
   },
   {
-    "type": "comment",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "dictionaries",
     "named": true,
     "fields": {},
@@ -17,10 +12,6 @@
       "multiple": true,
       "required": false,
       "types": [
-        {
-          "type": "comment",
-          "named": true
-        },
         {
           "type": "pair",
           "named": true
@@ -370,10 +361,6 @@
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
           "type": "dictionaries",
           "named": true
         },
@@ -463,10 +450,6 @@
       "multiple": true,
       "required": false,
       "types": [
-        {
-          "type": "comment",
-          "named": true
-        },
         {
           "type": "dictionaries",
           "named": true
@@ -797,10 +780,6 @@
     "named": false
   },
   {
-    "type": "#",
-    "named": false
-  },
-  {
     "type": "'",
     "named": false
   },
@@ -887,6 +866,10 @@
   {
     "type": "and",
     "named": false
+  },
+  {
+    "type": "comment",
+    "named": true
   },
   {
     "type": "elif",

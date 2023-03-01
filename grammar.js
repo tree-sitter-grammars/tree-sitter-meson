@@ -27,6 +27,7 @@ module.exports = grammar({
     [$.normal_command, $.pair, $.variableunit, $._logic_unit],
     [$.listitem, $.pair, $.variableunit, $._logic_unit],
   ],
+  extras: ($) => [$.comment, /\s/],
   rules: {
     //source_file: ($) => repeat($._command_invocation),
     source_file: ($) => repeat($._unit),
@@ -44,5 +45,6 @@ module.exports = grammar({
     ...base,
     ...operation,
     ...closure,
+    comment: (_) => token(seq("#", /[^\n]+/g)),
   },
 });

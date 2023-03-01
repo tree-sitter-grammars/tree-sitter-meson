@@ -16,7 +16,6 @@ module.exports = {
       field("command", $.identifier),
       optional(
         seq(
-          optional($.comment),
           repeat(
             seq(
               choice(
@@ -29,8 +28,7 @@ module.exports = {
                 $.variableunit,
                 $.var_unit
               ),
-              ",",
-              optional($.comment)
+              ","
             )
           ),
           choice(
@@ -43,8 +41,7 @@ module.exports = {
             $.variableunit,
             $.var_unit
           ),
-          optional(","),
-          optional($.comment)
+          optional(",")
         )
       )
     ),
@@ -107,12 +104,7 @@ module.exports = {
   formatunit: ($) =>
     seq("@", choice($.number, field("variable", $.identifier)), "@"),
   dictionaries: ($) =>
-    seq(
-      "{",
-      repeat(choice(seq($.pair, ","), $.comment)),
-      optional(seq($.pair)),
-      "}"
-    ),
+    seq("{", repeat(seq($.pair, ",")), optional(seq($.pair)), "}"),
   listitem: ($) =>
     seq(
       $.identifier,
@@ -143,8 +135,7 @@ module.exports = {
                 field("variable", $.identifier),
                 field("variable", $.experession_statement)
               ),
-              ",",
-              optional($.comment)
+              ","
             )
           ),
           optional(
@@ -158,8 +149,7 @@ module.exports = {
               field("variable", $.identifier),
               field("variable", $.experession_statement)
             )
-          ),
-          optional($.comment)
+          )
         )
       ),
       "]"
@@ -199,7 +189,6 @@ module.exports = {
       )
     ),
   identifier: (_) => /[A-Za-z_][A-Za-z0-9_]*/,
-  comment: (_) => seq("#", /[^\n]+/g),
   number: ($) => {
     const hex_literal = seq(choice("0x", "0X"), /[\da-fA-F](_?[\da-fA-F])*/);
 

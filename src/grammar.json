@@ -64,18 +64,6 @@
               "type": "SEQ",
               "members": [
                 {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "comment"
-                    },
-                    {
-                      "type": "BLANK"
-                    }
-                  ]
-                },
-                {
                   "type": "REPEAT",
                   "content": {
                     "type": "SEQ",
@@ -120,18 +108,6 @@
                       {
                         "type": "STRING",
                         "value": ","
-                      },
-                      {
-                        "type": "CHOICE",
-                        "members": [
-                          {
-                            "type": "SYMBOL",
-                            "name": "comment"
-                          },
-                          {
-                            "type": "BLANK"
-                          }
-                        ]
                       }
                     ]
                   }
@@ -179,18 +155,6 @@
                     {
                       "type": "STRING",
                       "value": ","
-                    },
-                    {
-                      "type": "BLANK"
-                    }
-                  ]
-                },
-                {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "comment"
                     },
                     {
                       "type": "BLANK"
@@ -401,24 +365,15 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "CHOICE",
+            "type": "SEQ",
             "members": [
               {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "SYMBOL",
-                    "name": "pair"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": ","
-                  }
-                ]
+                "type": "SYMBOL",
+                "name": "pair"
               },
               {
-                "type": "SYMBOL",
-                "name": "comment"
+                "type": "STRING",
+                "value": ","
               }
             ]
           }
@@ -566,18 +521,6 @@
                       {
                         "type": "STRING",
                         "value": ","
-                      },
-                      {
-                        "type": "CHOICE",
-                        "members": [
-                          {
-                            "type": "SYMBOL",
-                            "name": "comment"
-                          },
-                          {
-                            "type": "BLANK"
-                          }
-                        ]
                       }
                     ]
                   }
@@ -629,18 +572,6 @@
                           }
                         }
                       ]
-                    },
-                    {
-                      "type": "BLANK"
-                    }
-                  ]
-                },
-                {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "comment"
                     },
                     {
                       "type": "BLANK"
@@ -746,19 +677,6 @@
     "identifier": {
       "type": "PATTERN",
       "value": "[A-Za-z_][A-Za-z0-9_]*"
-    },
-    "comment": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "#"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[^\\n]+"
-        }
-      ]
     },
     "number": {
       "type": "TOKEN",
@@ -2002,9 +1920,29 @@
     "keyword_continue": {
       "type": "STRING",
       "value": "continue"
+    },
+    "comment": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "#"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[^\\n]+"
+          }
+        ]
+      }
     }
   },
   "extras": [
+    {
+      "type": "SYMBOL",
+      "name": "comment"
+    },
     {
       "type": "PATTERN",
       "value": "\\s"
