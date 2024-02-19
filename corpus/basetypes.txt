@@ -14,7 +14,7 @@ beta = '@a@\'\"\@'
         (escape_sequence)
         (escape_sequence)))))
 ======================
-variabe with commands 
+variable with commands
 ======================
 libpam = cc.find_library('pam', required: get_option('pam'))
 ---
@@ -22,7 +22,7 @@ libpam = cc.find_library('pam', required: get_option('pam'))
   (operatorunit
     (identifier)
     (variableunit
-      (experession_statement
+      (expression_statement
         (identifier)
         (normal_command
           (identifier)
@@ -99,7 +99,7 @@ command = [
       (identifier)
       (string)
       (variableunit
-        (experession_statement
+        (expression_statement
           (string
             (formatunit
               (number))
@@ -110,7 +110,7 @@ command = [
           (normal_command
             (identifier)
             (variableunit
-              (experession_statement
+              (expression_statement
                 (identifier)
                 (normal_command
                   (identifier))))

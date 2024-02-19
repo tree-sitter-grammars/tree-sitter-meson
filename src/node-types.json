@@ -32,7 +32,7 @@
           "named": true
         },
         {
-          "type": "experession_statement",
+          "type": "expression_statement",
           "named": true
         },
         {
@@ -67,7 +67,7 @@
           "named": true
         },
         {
-          "type": "experession_statement",
+          "type": "expression_statement",
           "named": true
         },
         {
@@ -102,7 +102,7 @@
     }
   },
   {
-    "type": "experession_statement",
+    "type": "expression_statement",
     "named": true,
     "fields": {
       "function": {
@@ -110,7 +110,7 @@
         "required": false,
         "types": [
           {
-            "type": "experession_statement",
+            "type": "expression_statement",
             "named": true
           },
           {
@@ -215,7 +215,7 @@
           "named": true
         },
         {
-          "type": "experession_statement",
+          "type": "expression_statement",
           "named": true
         },
         {
@@ -276,7 +276,7 @@
           "named": true
         },
         {
-          "type": "experession_statement",
+          "type": "expression_statement",
           "named": true
         },
         {
@@ -342,7 +342,7 @@
         "required": false,
         "types": [
           {
-            "type": "experession_statement",
+            "type": "expression_statement",
             "named": true
           },
           {
@@ -455,7 +455,7 @@
           "named": true
         },
         {
-          "type": "experession_statement",
+          "type": "expression_statement",
           "named": true
         },
         {
@@ -502,7 +502,7 @@
           "named": true
         },
         {
-          "type": "experession_statement",
+          "type": "expression_statement",
           "named": true
         },
         {
@@ -579,7 +579,7 @@
             "named": true
           },
           {
-            "type": "experession_statement",
+            "type": "expression_statement",
             "named": true
           },
           {
@@ -627,7 +627,7 @@
           "named": true
         },
         {
-          "type": "experession_statement",
+          "type": "expression_statement",
           "named": true
         },
         {
@@ -707,7 +707,7 @@
           "named": true
         },
         {
-          "type": "experession_statement",
+          "type": "expression_statement",
           "named": true
         },
         {
@@ -757,7 +757,7 @@
       "required": false,
       "types": [
         {
-          "type": "experession_statement",
+          "type": "expression_statement",
           "named": true
         },
         {
