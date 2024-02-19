@@ -26,7 +26,7 @@ endif
   (if_condition
     (if_command
       (var_unit
-        (experession_statement
+        (expression_statement
           (identifier)
           (normal_command
             (identifier))))
@@ -54,7 +54,7 @@ endif
   (if_condition
     (if_command
       (var_unit
-        (experession_statement
+        (expression_statement
           (identifier)
           (normal_command
             (identifier))))
@@ -67,10 +67,10 @@ endif
         (identifier)))
     (elseif_command
       (var_unit
-        (experession_statement
+        (expression_statement
           (identifier)
           (identifier))
-        (experession_statement
+        (expression_statement
           (identifier)
           (identifier))))
     (else_command
@@ -92,13 +92,13 @@ endif
   (if_condition
     (if_command
       (var_unit
-        (experession_statement
+        (expression_statement
           (identifier)
           (normal_command
             (identifier)
             (variableunit
               (string)))))
-      (experession_statement
+      (expression_statement
         (identifier)
         (normal_command
           (identifier)
@@ -106,7 +106,7 @@ endif
             (string))
           (var_unit
             (bool))))
-      (experession_statement
+      (expression_statement
         (identifier)
         (normal_command
           (identifier)
@@ -116,7 +116,7 @@ endif
             (bool)))))
     (elseif_command
       (var_unit
-        (experession_statement
+        (expression_statement
           (identifier)
           (normal_command
             (identifier)
@@ -125,7 +125,7 @@ endif
             (pair
               (identifier)
               (string)))))
-      (experession_statement
+      (expression_statement
         (identifier)
         (normal_command
           (identifier)
@@ -202,10 +202,10 @@ endif
     (if_command
       (var_unit
         (var_unit
-          (experession_statement
+          (expression_statement
             (identifier)
             (identifier))
-          (experession_statement
+          (expression_statement
             (identifier)
             (normal_command
               (identifier)))))

@@ -17,7 +17,7 @@ vncornot = isitvnc.disabled()
   (comment)
   (operatorunit
     (identifier)
-    (experession_statement
+    (expression_statement
       (normal_command
         (identifier)
         (variableunit
@@ -32,13 +32,13 @@ vncornot = isitvnc.disabled()
         (string))))
   (operatorunit
     (identifier)
-    (experession_statement
+    (expression_statement
       (identifier)
       (identifier)))
   (operatorunit
     (identifier)
       (variableunit
-        (experession_statement
+        (expression_statement
           (identifier)
           (normal_command
             (identifier))))))
@@ -73,7 +73,7 @@ custom_target(
       (list
         (identifier)
         (string)
-        (experession_statement
+        (expression_statement
           (string
             (formatunit
               (number))
@@ -84,7 +84,7 @@ custom_target(
           (normal_command
             (identifier)
             (variableunit
-              (experession_statement
+              (expression_statement
                 (identifier)
                 (normal_command
                   (identifier))))
@@ -95,7 +95,7 @@ custom_target(
       (bool))
     (pair
       (identifier)
-      (experession_statement
+      (expression_statement
         (string
           (formatunit
             (number)))

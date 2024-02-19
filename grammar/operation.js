@@ -14,7 +14,7 @@ module.exports = {
         $.bool,
         $.normal_command,
         $.number,
-        $.experession_statement,
+        $.expression_statement,
         $.ternaryoperator,
         $.var_unit
         //field("value", $.identifier),
@@ -27,7 +27,7 @@ module.exports = {
         $.normal_command,
         $.string,
         $.list,
-        $.experession_statement,
+        $.expression_statement,
         field("value", $.identifier)
       ),
       optional(
@@ -38,7 +38,7 @@ module.exports = {
               $.normal_command,
               $.list,
               $.string,
-              $.experession_statement,
+              $.expression_statement,
               field("value", $.identifier)
             )
           )
@@ -52,7 +52,7 @@ module.exports = {
       $.bool,
       $.normal_command,
       $.number,
-      $.experession_statement,
+      $.expression_statement,
       $.listitem,
       $.list,
       seq("(", $.var_unit, ")"),
@@ -74,7 +74,7 @@ module.exports = {
       optional("not"),
       $._logic_unit
     ),
-  experession_statement: ($) =>
+  expression_statement: ($) =>
     seq(
       choice(
         field("object", $.identifier),
@@ -88,7 +88,7 @@ module.exports = {
           choice(
             field("function", $.normal_command),
             field("object", $.listitem),
-            field("function", $.experession_statement),
+            field("function", $.expression_statement),
             field("property", $.identifier)
           ),
           optional(field("index", seq("[", $.number, "]")))

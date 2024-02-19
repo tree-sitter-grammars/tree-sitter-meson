@@ -16,7 +16,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "experession_statement"
+              "name": "expression_statement"
             },
             {
               "type": "SYMBOL",
@@ -89,7 +89,7 @@
                           },
                           {
                             "type": "SYMBOL",
-                            "name": "experession_statement"
+                            "name": "expression_statement"
                           },
                           {
                             "type": "SYMBOL",
@@ -133,7 +133,7 @@
                     },
                     {
                       "type": "SYMBOL",
-                      "name": "experession_statement"
+                      "name": "expression_statement"
                     },
                     {
                       "type": "SYMBOL",
@@ -513,7 +513,7 @@
                             "name": "variable",
                             "content": {
                               "type": "SYMBOL",
-                              "name": "experession_statement"
+                              "name": "expression_statement"
                             }
                           }
                         ]
@@ -568,7 +568,7 @@
                           "name": "variable",
                           "content": {
                             "type": "SYMBOL",
-                            "name": "experession_statement"
+                            "name": "expression_statement"
                           }
                         }
                       ]
@@ -667,7 +667,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "experession_statement"
+                "name": "expression_statement"
               }
             ]
           }
@@ -1262,7 +1262,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "experession_statement"
+              "name": "expression_statement"
             },
             {
               "type": "SYMBOL",
@@ -1296,7 +1296,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "experession_statement"
+              "name": "expression_statement"
             },
             {
               "type": "FIELD",
@@ -1346,7 +1346,7 @@
                       },
                       {
                         "type": "SYMBOL",
-                        "name": "experession_statement"
+                        "name": "expression_statement"
                       },
                       {
                         "type": "FIELD",
@@ -1414,7 +1414,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "experession_statement"
+          "name": "expression_statement"
         },
         {
           "type": "SYMBOL",
@@ -1545,7 +1545,7 @@
         }
       ]
     },
-    "experession_statement": {
+    "expression_statement": {
       "type": "SEQ",
       "members": [
         {
@@ -1618,7 +1618,7 @@
                     "name": "function",
                     "content": {
                       "type": "SYMBOL",
-                      "name": "experession_statement"
+                      "name": "expression_statement"
                     }
                   },
                   {
@@ -1932,7 +1932,8 @@
           },
           {
             "type": "PATTERN",
-            "value": "[^\\n]+"
+            "value": "[^\\n]+",
+            "flags": "g"
           }
         ]
       }
@@ -1978,7 +1979,7 @@
       "pair"
     ],
     [
-      "experession_statement"
+      "expression_statement"
     ],
     [
       "variableunit"
@@ -2004,7 +2005,7 @@
     ],
     [
       "listitem",
-      "experession_statement"
+      "expression_statement"
     ],
     [
       "list",
@@ -2020,7 +2021,7 @@
     ],
     [
       "normal_command",
-      "experession_statement"
+      "expression_statement"
     ],
     [
       "_logic_unit"

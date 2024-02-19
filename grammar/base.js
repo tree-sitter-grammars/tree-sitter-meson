@@ -23,7 +23,7 @@ module.exports = {
                 $.normal_command,
                 $.listitem,
                 $.list,
-                $.experession_statement,
+                $.expression_statement,
                 $.pair,
                 $.variableunit,
                 $.var_unit
@@ -36,7 +36,7 @@ module.exports = {
             $.normal_command,
             $.listitem,
             $.list,
-            $.experession_statement,
+            $.expression_statement,
             $.pair,
             $.variableunit,
             $.var_unit
@@ -133,7 +133,7 @@ module.exports = {
                 $.bool,
                 $.variableunit,
                 field("variable", $.identifier),
-                field("variable", $.experession_statement)
+                field("variable", $.expression_statement)
               ),
               ","
             )
@@ -147,7 +147,7 @@ module.exports = {
               $.bool,
               $.variableunit,
               field("variable", $.identifier),
-              field("variable", $.experession_statement)
+              field("variable", $.expression_statement)
             )
           )
         )
@@ -184,7 +184,7 @@ module.exports = {
           $.identifier,
           $.list,
           $.string,
-          $.experession_statement
+          $.expression_statement
         )
       )
     ),
