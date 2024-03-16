@@ -97,7 +97,7 @@ module.exports = {
           /[0-7]{1,3}/,
           /x[0-9a-fA-F]{2}/,
           /u[0-9a-fA-F]{4}/,
-          /u{[0-9a-fA-F]+}/
+          /u\{[0-9a-fA-F]+\}/
         )
       )
     ),
@@ -154,20 +154,7 @@ module.exports = {
       ),
       "]"
     ),
-  //map: ($) =>
-  //  seq(
-  //    "{",
-  //    repeat(
-  //      seq(
-  //        repeat($.pair),
-  //        ",",
-  //      ),
-  //    ),
-  //    optional(seq(
-  //      $.pair,
-  //    )),
-  //    "}",
-  //  ),
+
   pair: ($) =>
     seq(
       field("key", choice($.var_unit, $.variableunit, $.identifier, $.string)),
