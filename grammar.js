@@ -35,6 +35,6 @@ module.exports = grammar({
     ...base,
     ...operation,
     ...closure,
-    comment: (_) => token(seq("#", /[^\n]+/g)),
+    comment: (_) => token(seq("#", /[^\n]+/)),
   },
 });

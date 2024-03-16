@@ -1932,8 +1932,7 @@
           },
           {
             "type": "PATTERN",
-            "value": "[^\\n]+",
-            "flags": "g"
+            "value": "[^\\n]+"
           }
         ]
       }
