@@ -27,11 +27,13 @@
     "node-addon-api": "^7.1.0",
     "node-gyp-build": "^4.8.0"
   },
-  "tree-sitter": {
-    "file-types": [
-      "meson"
-    ]
-  },
+  "tree-sitter": [
+    {
+      "file-types": [
+        "meson"
+      ]
+    }
+  ],
   "peerDependencies": {
     "tree-sitter": "^0.22.1"
   },
