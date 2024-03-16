@@ -318,7 +318,7 @@
               },
               {
                 "type": "PATTERN",
-                "value": "u{[0-9a-fA-F]+}"
+                "value": "u\\{[0-9a-fA-F]+\\}"
               }
             ]
           }
@@ -1932,8 +1932,7 @@
           },
           {
             "type": "PATTERN",
-            "value": "[^\\n]+",
-            "flags": "g"
+            "value": "[^\\n]+"
           }
         ]
       }
@@ -1961,22 +1960,6 @@
     [
       "operatorunit",
       "_logic_unit"
-    ],
-    [
-      "normal_command",
-      "variableunit"
-    ],
-    [
-      "normal_command",
-      "operatorunit"
-    ],
-    [
-      "variableunit",
-      "operatorunit"
-    ],
-    [
-      "variableunit",
-      "pair"
     ],
     [
       "expression_statement"
@@ -2012,33 +1995,6 @@
       "variableunit"
     ],
     [
-      "listitem",
-      "variableunit"
-    ],
-    [
-      "listitem",
-      "_logic_unit"
-    ],
-    [
-      "normal_command",
-      "expression_statement"
-    ],
-    [
-      "_logic_unit"
-    ],
-    [
-      "var_unit"
-    ],
-    [
-      "normal_command",
-      "pair",
-      "variableunit",
-      "_logic_unit"
-    ],
-    [
-      "listitem",
-      "pair",
-      "variableunit",
       "_logic_unit"
     ]
   ],
@@ -2047,4 +2003,3 @@
   "inline": [],
   "supertypes": []
 }
-
