@@ -1,7 +1,7 @@
 [package]
 name = "tree-sitter-meson"
 description = "meson grammar for the tree-sitter parsing library"
-version = "0.0.2"
+version = "1.2.1"
 keywords = ["incremental", "parsing", "meson"]
 categories = ["parsing", "text-editors"]
 repository = "https://github.com/tree-sitter/tree-sitter-meson"
