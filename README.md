@@ -1,6 +1,6 @@
 # tree-sitter-meson
 
-Treesitter for meson build 
+Treesitter for meson build
 
 It just works, for highlight in neovim
 
@@ -13,13 +13,13 @@ if comment in some where, the Treesitter will break
 
 ## Files
 
-### base.js 
+### base.js
 
-about the base types and command 
+about the base types and command
 
-### closue.js
+### closure.js
 
-if else and loop 
+if else and loop
 
 ### operation.js
 
