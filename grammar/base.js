@@ -49,10 +49,7 @@ module.exports = {
   string: ($) =>
     choice(
       seq(
-        choice(
-          "'",
-          "f'"
-        ),
+        choice("'", "f'"),
         optional(
           repeat(
             choice(
