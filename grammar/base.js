@@ -48,9 +48,11 @@ module.exports = {
   bool: ($) => choice("true", "false"),
   string: ($) =>
     choice(
-      //'sss.ss'
       seq(
-        "'",
+        choice(
+          "'",
+          "f'"
+        ),
         optional(
           repeat(
             choice(
@@ -62,18 +64,6 @@ module.exports = {
         ),
         "'"
       ),
-      //"ss.ss"
-      //seq(
-      //  '"',
-      //  optional(
-      //    repeat(choice(
-      //      token.immediate(prec(1, /[^"\\^@]+/)),
-      //      $.escape_sequence,
-      //      $.formatunit,
-      //    )),
-      //  ),
-      //  '"',
-      //),
       seq(
         "'''",
         optional(
@@ -206,7 +196,7 @@ module.exports = {
       ),
       seq(".", decimal_digits, optional(exponent_part)),
       seq(decimal_integer_literal, exponent_part),
-      seq(decimal_digits)
+      decimal_digits
     );
 
     return token(

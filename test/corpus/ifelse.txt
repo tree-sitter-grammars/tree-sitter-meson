@@ -1,7 +1,7 @@
 ===========
 base if
 ===========
-if true 
+if true
   something()
 endif
 ---
@@ -14,7 +14,7 @@ endif
         (identifier)))))
 
 ============
-base if else 
+base if else
 ============
 if a.enabled()
   something()
@@ -134,7 +134,7 @@ endif
           (var_unit
             (bool)))))))
 =================
-mutipile if else 
+mutipile if else
 =================
 if buildtype != 'debug' and buildtype != 'debugoptimized'
 	c_args += '-DNDEBUG'

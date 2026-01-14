@@ -1,5 +1,5 @@
 ==============
-string escape
+string template
 ==============
 beta = '@a@\'\"\@'
 ---
@@ -13,6 +13,43 @@ beta = '@a@\'\"\@'
         (escape_sequence)
         (escape_sequence)
         (escape_sequence)))))
+======================
+variable with commands
+======================
+libpam = cc.find_library('pam', required: get_option('pam'))
+---
+(source_file
+  (operatorunit
+    (identifier)
+    (variableunit
+      (expression_statement
+        (identifier)
+        (normal_command
+          (identifier)
+          (variableunit
+            (string))
+          (pair
+            (identifier)
+            (normal_command
+              (identifier)
+              (variableunit
+                (string)))))))))
+
+==============
+format string
+==============
+beta = f'@a@bb'
+---
+
+(source_file
+  (operatorunit
+    (identifier)
+    (variableunit
+      (string
+        (formatunit
+          (identifier))))))
+
+
 ======================
 variable with commands
 ======================
@@ -86,7 +123,7 @@ a = exec(['a',true])
         (string)
         (bool)))))
 =========
-list 
+list
 =========
 command = [
 	sh, '-c', '@0@ <@INPUT@ >@1@'.format(scdoc_prog.path(), output)
