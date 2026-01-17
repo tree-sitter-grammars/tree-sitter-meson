@@ -392,13 +392,8 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "pair"
-                }
-              ]
+              "type": "SYMBOL",
+              "name": "pair"
             },
             {
               "type": "BLANK"
@@ -1596,8 +1591,11 @@
             "type": "SEQ",
             "members": [
               {
-                "type": "STRING",
-                "value": "."
+                "type": "IMMEDIATE_TOKEN",
+                "content": {
+                  "type": "STRING",
+                  "value": "."
+                }
               },
               {
                 "type": "CHOICE",

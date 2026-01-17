@@ -84,7 +84,7 @@ module.exports = {
       ),
       repeat1(
         seq(
-          ".",
+          token.immediate("."),
           choice(
             field("function", $.normal_command),
             field("object", $.listitem),
