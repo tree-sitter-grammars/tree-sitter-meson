@@ -1,0 +1,301 @@
+// Meson grammar for tree-sitter (native DSL).
+// Translated from grammar.js + grammar/{base,operation,closure}.js.
+
+let decimal_digits: rule_t = regexp(r"\d(_?\d)*")
+let signed_integer: rule_t = seq(optional(choice("-", "+")), decimal_digits)
+let exponent_part: rule_t = seq(choice("e", "E"), signed_integer)
+let hex_literal: rule_t = seq(choice("0x", "0X"), regexp(r"[\da-fA-F](_?[\da-fA-F])*"))
+let binary_literal: rule_t = seq(choice("0b", "0B"), regexp(r"[0-1](_?[0-1])*"))
+let octal_literal: rule_t = seq(choice("0o", "0O"), regexp(r"[0-7](_?[0-7])*"))
+let bigint_literal: rule_t = seq(
+    choice(hex_literal, binary_literal, octal_literal, decimal_digits),
+    "n",
+)
+let decimal_integer_literal: rule_t = choice(
+    "0",
+    seq(optional("0"), regexp(r"[1-9]"), optional(seq(optional("_"), decimal_digits))),
+)
+let decimal_literal: rule_t = choice(
+    seq(decimal_integer_literal, ".", optional(decimal_digits), optional(exponent_part)),
+    seq(".", decimal_digits, optional(exponent_part)),
+    seq(decimal_integer_literal, exponent_part),
+    decimal_digits,
+)
+
+grammar {
+    language: "meson",
+    extras: [comment, regexp(r"\s")],
+    conflicts: [
+        [_logic_unit, normal_command],
+        [variableunit, _logic_unit],
+        [operatorunit, _logic_unit],
+        [expression_statement],
+        [variableunit],
+        [pair, variableunit, _logic_unit],
+        [operatorunit, variableunit, _logic_unit],
+        [normal_command, variableunit, _logic_unit],
+        [pair, _logic_unit],
+        [listitem, expression_statement],
+        [list, variableunit],
+        [_logic_unit],
+    ],
+}
+
+rule source_file { repeat(_unit) }
+
+rule _unit {
+    seq(choice(
+        expression_statement,
+        comment,
+        normal_command,
+        operatorunit,
+        if_condition,
+        foreach_command,
+    ))
+}
+
+rule normal_command {
+    seq(
+        field(command, identifier),
+        "(",
+        optional(seq(
+            repeat(seq(
+                choice(
+                    dictionaries, normal_command, listitem, list,
+                    expression_statement, pair, variableunit, var_unit,
+                ),
+                ",",
+            )),
+            choice(
+                dictionaries, normal_command, listitem, list,
+                expression_statement, pair, variableunit, var_unit,
+            ),
+            optional(","),
+        )),
+        ")",
+    )
+}
+
+rule bool { choice("true", "false") }
+
+rule string {
+    choice(
+        seq(
+            choice("'", "f'"),
+            optional(repeat(choice(
+                token_immediate(prec(1, regexp(r"[^'\\^@]+"))),
+                escape_sequence,
+                formatunit,
+            ))),
+            "'",
+        ),
+        seq(
+            "'''",
+            optional(repeat(choice(
+                token_immediate(prec(1, regexp(r"[^'''\\^@]+"))),
+                escape_sequence,
+                formatunit,
+            ))),
+            "'''",
+        ),
+    )
+}
+
+rule escape_sequence {
+    token_immediate(seq("\\", choice(
+        regexp(r"[^xu0-7]"),
+        regexp(r"[0-7]{1,3}"),
+        regexp(r"x[0-9a-fA-F]{2}"),
+        regexp(r"u[0-9a-fA-F]{4}"),
+        regexp(r"u\{[0-9a-fA-F]+\}"),
+    )))
+}
+
+rule formatunit {
+    seq("@", choice(number, field(variable, identifier)), "@")
+}
+
+rule dictionaries {
+    seq("{", repeat(seq(pair, ",")), optional(pair), "}")
+}
+
+rule listitem {
+    seq(
+        identifier,
+        "[",
+        choice(
+            field(index, number),
+            field(index, identifier),
+            field(key, string),
+        ),
+        "]",
+    )
+}
+
+rule list {
+    seq(
+        "[",
+        optional(seq(
+            repeat(seq(
+                choice(
+                    dictionaries, normal_command, number, string, list, listitem,
+                    bool, variableunit,
+                    field(variable, identifier),
+                    field(variable, expression_statement),
+                ),
+                ",",
+            )),
+            optional(choice(
+                normal_command, number, string, list, bool, variableunit,
+                field(variable, identifier),
+                field(variable, expression_statement),
+            )),
+        )),
+        "]",
+    )
+}
+
+rule pair {
+    seq(
+        field(key, choice(var_unit, variableunit, identifier, string)),
+        ":",
+        field(value, choice(
+            bool, var_unit, variableunit, dictionaries, normal_command, number,
+            identifier, list, string, expression_statement,
+        )),
+    )
+}
+
+rule identifier { regexp(r"[A-Za-z_][A-Za-z0-9_]*") }
+
+rule number {
+    token(choice(
+        signed_integer,
+        hex_literal,
+        decimal_literal,
+        binary_literal,
+        octal_literal,
+        bigint_literal,
+    ))
+}
+
+rule comment { token(seq("#", regexp(r"[^\n]+"))) }
+
+rule if_condition {
+    seq(if_command, repeat(elseif_command), optional(else_command), "endif")
+}
+
+rule if_command {
+    seq(
+        "if",
+        var_unit,
+        optional(repeat(_unit)),
+        optional(choice(keyword_break, keyword_continue)),
+    )
+}
+
+rule elseif_command {
+    seq(
+        "elif",
+        var_unit,
+        optional(repeat(_unit)),
+        optional(choice(keyword_break, keyword_continue)),
+    )
+}
+
+rule else_command {
+    seq("else", optional(repeat(_unit)))
+}
+
+rule foreach_command {
+    seq(
+        "foreach",
+        seq(
+            field(item, identifier),
+            repeat(seq(",", field(item, identifier))),
+        ),
+        ":",
+        choice(
+            field(array, identifier),
+            field(array, list),
+            field(dictionaries, dictionaries),
+        ),
+        optional(repeat(_unit)),
+        "endforeach",
+    )
+}
+
+rule keyword_break { "break" }
+rule keyword_continue { "continue" }
+
+rule operatorunit {
+    seq(
+        identifier,
+        choice("=", "+=", "-=", "/=", "/"),
+        choice(
+            listitem, dictionaries, list, variableunit, bool, normal_command,
+            number, expression_statement, ternaryoperator, var_unit,
+        ),
+    )
+}
+
+rule variableunit {
+    seq(
+        choice(
+            normal_command, string, list, expression_statement,
+            field(value, identifier),
+        ),
+        optional(repeat(seq(
+            choice("+", "/"),
+            choice(
+                normal_command, list, string, expression_statement,
+                field(value, identifier),
+            ),
+        ))),
+    )
+}
+
+rule ternaryoperator { seq(var_unit, "?", var_unit, ":", var_unit) }
+
+rule _logic_unit {
+    choice(
+        string, bool, normal_command, number, expression_statement,
+        listitem, list,
+        seq("(", var_unit, ")"),
+        field(value, identifier),
+    )
+}
+
+rule var_unit {
+    seq(
+        repeat(seq(
+            optional("not"),
+            _logic_unit,
+            optional("not"),
+            choice("==", "!=", ">=", ">", "<", "and", "or", "in"),
+        )),
+        optional("not"),
+        _logic_unit,
+    )
+}
+
+rule expression_statement {
+    seq(
+        choice(
+            field(object, identifier),
+            field(object, listitem),
+            field(object, string),
+            field(function, normal_command),
+        ),
+        repeat1(seq(
+            ".",
+            choice(
+                field(function, normal_command),
+                field(object, listitem),
+                field(function, expression_statement),
+                field(property, identifier),
+            ),
+            optional(field(index, seq("[", number, "]"))),
+        )),
+    )
+}
